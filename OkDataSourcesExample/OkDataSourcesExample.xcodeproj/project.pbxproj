@@ -27,6 +27,7 @@
 		A26C7A721CB817BA004192D9 /* OkTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C7A681CB817BA004192D9 /* OkTableViewDelegate.swift */; };
 		A26C7A741CB817BA004192D9 /* OkViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C7A6A1CB817BA004192D9 /* OkViewCell.swift */; };
 		A26C7A751CB817BA004192D9 /* OkViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C7A6B1CB817BA004192D9 /* OkViewDataSource.swift */; };
+		A272BAB01CC83CAB0068F762 /* OkViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A272BAAF1CC83CAB0068F762 /* OkViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		A26C7A681CB817BA004192D9 /* OkTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkTableViewDelegate.swift; sourceTree = "<group>"; };
 		A26C7A6A1CB817BA004192D9 /* OkViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkViewCell.swift; sourceTree = "<group>"; };
 		A26C7A6B1CB817BA004192D9 /* OkViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkViewDataSource.swift; sourceTree = "<group>"; };
+		A272BAAF1CC83CAB0068F762 /* OkViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkViewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 				A26C7A681CB817BA004192D9 /* OkTableViewDelegate.swift */,
 				A26C7A6A1CB817BA004192D9 /* OkViewCell.swift */,
 				A26C7A6B1CB817BA004192D9 /* OkViewDataSource.swift */,
+				A272BAAF1CC83CAB0068F762 /* OkViewDelegate.swift */,
 				A22503E01CB81CE000F3D8B5 /* OkViewCellDelegate.swift */,
 			);
 			name = Library;
@@ -351,6 +354,7 @@
 				A26C7A721CB817BA004192D9 /* OkTableViewDelegate.swift in Sources */,
 				A26C7A221CB81783004192D9 /* AppDelegate.swift in Sources */,
 				A26C7A5C1CB817B0004192D9 /* CollectionViewController.swift in Sources */,
+				A272BAB01CC83CAB0068F762 /* OkViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

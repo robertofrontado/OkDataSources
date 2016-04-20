@@ -8,11 +8,11 @@
 
 import UIKit
 
-public class OkTableViewDelegate<T: OkViewDataSource, U: OkViewCellDelegate where T.ItemType == U.ItemType>: NSObject, UITableViewDelegate {
+public class OkTableViewDelegate<T: OkViewDataSource, U: OkViewCellDelegate where T.ItemType == U.ItemType>: OkViewDelegate<T.ItemType>, UITableViewDelegate {
     
     public let dataSource: T
     public let presenter: U
-    public var onRefreshedBlock: (refreshControl: UIRefreshControl) -> Void = { _ in return }
+    
     private var tableView: UITableView!
     
     public init(dataSource: T, presenter: U) {
@@ -20,28 +20,24 @@ public class OkTableViewDelegate<T: OkViewDataSource, U: OkViewCellDelegate wher
         self.presenter = presenter
     }
     
-    // MARK: - Private methods
-    internal func refreshControlValueChanged(refreshControl: UIRefreshControl) {
-        onRefreshedBlock(refreshControl: refreshControl)
-    }
-    
     // MARK: - Public methods
+    // MARK: Pull to refresh
     public func setOnPullToRefresh(tableView: UITableView, onRefreshedBlock: (refreshControl: UIRefreshControl) -> Void) {
-        setOnPullToRefresh(nil, tableView: tableView, onRefreshedBlock: onRefreshedBlock)
+        setOnPullToRefresh(tableView, onRefreshedBlock: onRefreshedBlock, refreshControl: nil)
     }
     
-    public func setOnPullToRefresh(var refreshControl: UIRefreshControl?, tableView: UITableView, onRefreshedBlock: (refreshControl: UIRefreshControl) -> Void) {
-        
-        self.onRefreshedBlock = onRefreshedBlock
+    public func setOnPullToRefresh(tableView: UITableView, onRefreshedBlock: (refreshControl: UIRefreshControl) -> Void, var refreshControl: UIRefreshControl?) {
+        configureRefreshControl(&refreshControl, onRefreshedBlock: onRefreshedBlock)
         self.tableView = tableView
-        
-        if refreshControl == nil {
-            refreshControl = UIRefreshControl()
-            refreshControl!.tintColor = UIColor.grayColor()
-        }
-        
-        refreshControl!.addTarget(self, action: "refreshControlValueChanged:", forControlEvents: UIControlEvents.ValueChanged)
         tableView.addSubview(refreshControl!)
+    }
+    
+    // MARK: UITableViewDelegate
+    public func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        // Ask for nextPage every time the user is getting close to the trigger treshold
+        if (dataSource.items.count - triggerTreshold) == indexPath.row && indexPath.row > triggerTreshold {
+            onPaginationBlock(item: dataSource.items[indexPath.row])
+        }
     }
     
     public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

@@ -22,17 +22,20 @@ class CollectionViewController: UIViewController, OkViewCellDelegate {
             print("refreshed")
             refreshControl.endRefreshing()
         }
+        delegate.setOnPagination { (item) -> Void in
+            self.addMockItems(self.dataSource.items.count)
+        }
         collectionView.dataSource = dataSource
         collectionView.delegate = delegate
-        showMockItems()
+        addMockItems()
     }
     
-    private func showMockItems() {
+    private func addMockItems(count: Int = 0) {
         var items = [Item]()
-        for i in 0..<10 {
+        for i in count..<(count + 30) {
             items.append(Item(value: "Item \(i)"))
         }
-        dataSource.items = items
+        dataSource.items.appendContentsOf(items)
         collectionView.reloadData()
     }
     
