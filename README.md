@@ -133,6 +133,40 @@ class CollectionViewController: UIViewController, OkViewCellDelegate {
 
 ```
 
+##Also they has PullToRefresh and Pagination functinalities in their OkDelegates
+
+### PullToRefresh
+
+Using tableViews
+
+```swift
+delegate.setOnPullToRefresh(tableView) { (refreshControl) -> Void in
+            print("refreshed")    
+            // You need to stop the UIRefreshControl manually when you want to
+            refreshControl.endRefreshing()
+        }
+```
+
+Using collectionViews
+
+```swift
+delegate.setOnPullToRefresh(collectionView) { (refreshControl) -> Void in
+            print("refreshed")   
+             // You need to stop the UIRefreshControl manually when you want to
+            refreshControl.endRefreshing()
+        }
+```
+
+### Pagination
+
+For tableViews and collectionViews
+
+```swift
+delegate.setOnPagination { (item) -> Void in
+           // Ask for more items
+        }
+```
+
 ##For more Customization
 
 If you need a fully customization of `DataSource` or `Delegate` (`TableView`, `CollectionView`) you can simply create a class that inherits from them and just override the methods that you need
@@ -155,6 +189,7 @@ class ExampleTableViewDataSource: OkTableViewDataSource<Item, TableViewCell> {
     return cell
 }
 ```
+
 
 ##Credits
 This approach is based on https://github.com/Karumi/BothamUI
