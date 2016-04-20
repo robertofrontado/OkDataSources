@@ -18,6 +18,10 @@ class CollectionViewController: UIViewController, OkViewCellDelegate {
         super.viewDidLoad()
         dataSource = OkCollectionViewDataSource()
         delegate = OkCollectionViewDelegate(dataSource: dataSource, presenter: self)
+        delegate.setOnPullToRefresh(collectionView) { (refreshControl) -> Void in
+            print("refreshed")
+            refreshControl.endRefreshing()
+        }
         collectionView.dataSource = dataSource
         collectionView.delegate = delegate
         showMockItems()

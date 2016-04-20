@@ -18,6 +18,10 @@ class TableViewController: UIViewController, OkViewCellDelegate {
         super.viewDidLoad()
         dataSource = OkTableViewDataSource()
         delegate = OkTableViewDelegate(dataSource: dataSource, presenter: self)
+        delegate.setOnPullToRefresh(tableView) { (refreshControl) -> Void in
+            print("refreshed")
+            refreshControl.endRefreshing()
+        }
         tableView.dataSource = dataSource
         tableView.delegate = delegate
         showMockItems()
