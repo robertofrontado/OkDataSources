@@ -133,7 +133,7 @@ class CollectionViewController: UIViewController, OkViewCellDelegate {
 
 ```
 
-##Also they has PullToRefresh and Pagination functinalities in their OkDelegates
+##Also they have PullToRefresh and Pagination functionalities in their OkDelegates
 
 ### PullToRefresh
 
