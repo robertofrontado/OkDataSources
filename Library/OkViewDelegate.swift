@@ -8,14 +8,17 @@
 
 import UIKit
 
-public class OkViewDelegate<ItemType>: NSObject {
+public class OkViewDelegate<T: OkViewDataSource>: NSObject {
     
-    internal let onItemClicked: (item: ItemType, position: Int) -> Void
+    public var dataSource: T
+    
+    internal let onItemClicked: (item: T.ItemType, position: Int) -> Void
     internal var onRefreshed: (refreshControl: UIRefreshControl) -> Void = { _ in return }
-    internal var onPagination: (item: ItemType) -> Void = { _ in return }
+    internal var onPagination: (item: T.ItemType) -> Void = { _ in return }
     public var triggerTreshold: Int = 1
     
-    init(onItemClicked: (item: ItemType, position: Int) -> Void) {
+    public init(dataSource: T, onItemClicked: (item: T.ItemType, position: Int) -> Void) {
+        self.dataSource = dataSource
         self.onItemClicked = onItemClicked
     }
     
@@ -26,11 +29,11 @@ public class OkViewDelegate<ItemType>: NSObject {
     
     // MARK: - Public methods
     // MARK: Pagination
-    public func setOnPagination(onPagination: (item: ItemType) -> Void) {
+    public func setOnPagination(onPagination: (item: T.ItemType) -> Void) {
         setOnPagination(nil, onPagination: onPagination)
     }
     
-    public func setOnPagination(triggerTreshold: Int?, onPagination: (item: ItemType) -> Void) {
+    public func setOnPagination(triggerTreshold: Int?, onPagination: (item: T.ItemType) -> Void) {
         if let triggerTreshold = triggerTreshold {
             self.triggerTreshold = triggerTreshold
         }

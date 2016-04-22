@@ -8,13 +8,10 @@
 
 import UIKit
 
-public class OkTableViewDelegate<T: OkViewDataSource>: OkViewDelegate<T.ItemType>, UITableViewDelegate {
+public class OkTableViewDelegate<T: OkViewDataSource>: OkViewDelegate<T>, UITableViewDelegate {
     
-    public let dataSource: T
-    
-    public init(dataSource: T, onItemClicked: (item: T.ItemType, position: Int) -> Void) {
-        self.dataSource = dataSource
-        super.init(onItemClicked: onItemClicked)
+    public override init(dataSource: T, onItemClicked: (item: T.ItemType, position: Int) -> Void) {
+        super.init(dataSource: dataSource, onItemClicked: onItemClicked)
     }
     
     // MARK: - Public methods

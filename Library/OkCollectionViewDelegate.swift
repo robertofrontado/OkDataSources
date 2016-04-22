@@ -8,13 +8,10 @@
 
 import UIKit
 
-public class OkCollectionViewDelegate<T: OkViewDataSource>: OkViewDelegate<T.ItemType>, UICollectionViewDelegate {
+public class OkCollectionViewDelegate<T: OkViewDataSource>: OkViewDelegate<T>, UICollectionViewDelegate {
     
-    public let dataSource: T
-    
-    public init(dataSource: T, onItemClicked: (item: T.ItemType, position: Int) -> Void) {
-        self.dataSource = dataSource
-        super.init(onItemClicked: onItemClicked)
+    public override init(dataSource: T, onItemClicked: (item: T.ItemType, position: Int) -> Void) {
+        super.init(dataSource: dataSource, onItemClicked: onItemClicked)
     }
     
     // MARK: - Public methods
