@@ -8,35 +8,38 @@
 
 import UIKit
 
-public class OkViewDelegate<T>: NSObject {
+public class OkViewDelegate<ItemType>: NSObject {
     
-    public var onRefreshedBlock: (refreshControl: UIRefreshControl) -> Void = { _ in return }
-    public var onPaginationBlock: (item: T) -> Void = { _ in return }
+    internal let onItemClicked: (item: ItemType, position: Int) -> Void
+    internal var onRefreshed: (refreshControl: UIRefreshControl) -> Void = { _ in return }
+    internal var onPagination: (item: ItemType) -> Void = { _ in return }
     public var triggerTreshold: Int = 1
     
-    public override init() {}
+    init(onItemClicked: (item: ItemType, position: Int) -> Void) {
+        self.onItemClicked = onItemClicked
+    }
     
     // MARK: Private methods
     internal func refreshControlValueChanged(refreshControl: UIRefreshControl) {
-        onRefreshedBlock(refreshControl: refreshControl)
+        onRefreshed(refreshControl: refreshControl)
     }
     
     // MARK: - Public methods
     // MARK: Pagination
-    public func setOnPagination(onPaginationBlock: (item: T) -> Void) {
-        setOnPagination(nil, onPaginationBlock: onPaginationBlock)
+    public func setOnPagination(onPagination: (item: ItemType) -> Void) {
+        setOnPagination(nil, onPagination: onPagination)
     }
     
-    public func setOnPagination(triggerTreshold: Int?, onPaginationBlock: (item: T) -> Void) {
+    public func setOnPagination(triggerTreshold: Int?, onPagination: (item: ItemType) -> Void) {
         if let triggerTreshold = triggerTreshold {
             self.triggerTreshold = triggerTreshold
         }
-        self.onPaginationBlock = onPaginationBlock
+        self.onPagination = onPagination
     }
     
     // MARK: Pull to refresh
-    internal func configureRefreshControl(inout refreshControl: UIRefreshControl?, onRefreshedBlock: (refreshControl: UIRefreshControl) -> Void) {
-        self.onRefreshedBlock = onRefreshedBlock
+    internal func configureRefreshControl(inout refreshControl: UIRefreshControl?, onRefreshed: (refreshControl: UIRefreshControl) -> Void) {
+        self.onRefreshed = onRefreshed
         if refreshControl == nil {
             refreshControl = UIRefreshControl()
             refreshControl!.tintColor = UIColor.grayColor()

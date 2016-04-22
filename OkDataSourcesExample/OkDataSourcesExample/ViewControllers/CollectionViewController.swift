@@ -8,16 +8,19 @@
 
 import UIKit
 
-class CollectionViewController: UIViewController, OkViewCellDelegate {
+class CollectionViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     var dataSource: OkCollectionViewDataSource<Item, CollectionViewCell>!
-    var delegate: OkCollectionViewDelegate<OkCollectionViewDataSource<Item, CollectionViewCell>, CollectionViewController>!
+    var delegate: OkCollectionViewDelegate<OkCollectionViewDataSource<Item, CollectionViewCell>>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource = OkCollectionViewDataSource()
-        delegate = OkCollectionViewDelegate(dataSource: dataSource, presenter: self)
+        delegate = OkCollectionViewDelegate(dataSource: dataSource,
+            onItemClicked: { (item, position) in
+                self.showAlertMessage("\(item.value) clicked")
+        })
         delegate.setOnPullToRefresh(collectionView) { (refreshControl) -> Void in
             print("refreshed")
             refreshControl.endRefreshing()
@@ -37,11 +40,6 @@ class CollectionViewController: UIViewController, OkViewCellDelegate {
         }
         dataSource.items.appendContentsOf(items)
         collectionView.reloadData()
-    }
-    
-    // MARK: - OkViewCellDelegate
-    func onItemClick(item: Item, position: Int) {
-        showAlertMessage("\(item.value) clicked")
     }
     
 }

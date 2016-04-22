@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A22503E11CB81CE000F3D8B5 /* OkViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22503E01CB81CE000F3D8B5 /* OkViewCellDelegate.swift */; };
 		A26C7A221CB81783004192D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C7A211CB81783004192D9 /* AppDelegate.swift */; };
 		A26C7A271CB81783004192D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A26C7A251CB81783004192D9 /* Main.storyboard */; };
 		A26C7A291CB81783004192D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A26C7A281CB81783004192D9 /* Assets.xcassets */; };
@@ -48,7 +47,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A22503E01CB81CE000F3D8B5 /* OkViewCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkViewCellDelegate.swift; sourceTree = "<group>"; };
 		A26C7A1E1CB81783004192D9 /* OkDataSourcesExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OkDataSourcesExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A26C7A211CB81783004192D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A26C7A261CB81783004192D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -202,7 +200,6 @@
 				A26C7A6A1CB817BA004192D9 /* OkViewCell.swift */,
 				A26C7A6B1CB817BA004192D9 /* OkViewDataSource.swift */,
 				A272BAAF1CC83CAB0068F762 /* OkViewDelegate.swift */,
-				A22503E01CB81CE000F3D8B5 /* OkViewCellDelegate.swift */,
 			);
 			name = Library;
 			path = ../../Library;
@@ -343,7 +340,6 @@
 				A26C7A5D1CB817B0004192D9 /* TableViewController.swift in Sources */,
 				A26C7A5F1CB817B0004192D9 /* CollectionViewCell.swift in Sources */,
 				A26C7A751CB817BA004192D9 /* OkViewDataSource.swift in Sources */,
-				A22503E11CB81CE000F3D8B5 /* OkViewCellDelegate.swift in Sources */,
 				A26C7A6D1CB817BA004192D9 /* OkCollectionViewDataSource.swift in Sources */,
 				A26C7A601CB817B0004192D9 /* TableViewCell.swift in Sources */,
 				A26C7A6E1CB817BA004192D9 /* OkCollectionViewDelegate.swift in Sources */,

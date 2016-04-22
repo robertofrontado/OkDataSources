@@ -8,16 +8,19 @@
 
 import UIKit
 
-class TableViewController: UIViewController, OkViewCellDelegate {
+class TableViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var dataSource: OkTableViewDataSource<Item, TableViewCell>!
-    var delegate: OkTableViewDelegate<OkTableViewDataSource<Item, TableViewCell>, TableViewController>!
+    var delegate: OkTableViewDelegate<OkTableViewDataSource<Item, TableViewCell>>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource = OkTableViewDataSource()
-        delegate = OkTableViewDelegate(dataSource: dataSource, presenter: self)
+        delegate = OkTableViewDelegate(dataSource: dataSource,
+            onItemClicked: { (item, position) in
+            self.showAlertMessage("\(item.value) clicked")
+        })
         delegate.setOnPullToRefresh(tableView) { (refreshControl) -> Void in
             print("refreshed")
             refreshControl.endRefreshing()
@@ -37,11 +40,6 @@ class TableViewController: UIViewController, OkViewCellDelegate {
         }
         dataSource.items.appendContentsOf(items)
         tableView.reloadData()
-    }
-    
-    // MARK: - OkViewCellDelegate
-    func onItemClick(item: Item, position: Int) {
-        showAlertMessage("\(item.value) clicked")
     }
 
 }
