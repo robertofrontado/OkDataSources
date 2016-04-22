@@ -21,11 +21,16 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
   s.requires_arc = true
 
-  s.source_files = 'Library/*.swift'
+  s.default_subspec = "Core"
+
+  s.subspec "Core" do |ss|
+    ss.source_files = 'Library/*.swift'
+  end
 
   s.subspec "RxSwift" do |ss|
     ss.source_files = "Library/RxSwift/*.swift"
+    ss.dependency "OkDataSources/Core"
     ss.dependency "RxSwift", "~> 2.0.0"
   end
-
+  
 end
