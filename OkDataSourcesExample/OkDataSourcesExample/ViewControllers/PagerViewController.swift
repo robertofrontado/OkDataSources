@@ -24,8 +24,9 @@ class PagerViewController: UIViewController, OkPagerViewDataSource, OkPagerViewD
     private func setUpPages() {
         pageViews = [SinglePageViewController]()
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        for _ in 0..<3 {
+        for i in 0..<3 {
             let singlePageVC = storyboard.instantiateViewControllerWithIdentifier(String(SinglePageViewController)) as! SinglePageViewController
+            singlePageVC.pageIndex = i
             pageViews.append(singlePageVC)
         }
     }
@@ -37,9 +38,7 @@ class PagerViewController: UIViewController, OkPagerViewDataSource, OkPagerViewD
     
     // MARK: - OkPagerViewDataSource
     func viewControllerAtIndex(index: Int) -> UIViewController? {
-        let singlePageVC = pageViews[index]
-        singlePageVC.pageIndex = index
-        return singlePageVC
+        return pageViews[index]
     }
     
     func numberOfPages() -> Int? {
