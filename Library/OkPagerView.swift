@@ -16,7 +16,7 @@ public protocol OkPagerViewDataSource {
 
 public protocol OkPagerViewDelegate {
     
-    func onPageSelected(viewController: UIViewController, position: Int)
+    func onPageSelected(viewController: UIViewController, index: Int)
 }
 
 public class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
@@ -116,7 +116,7 @@ public class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewCont
                     pageControl?.currentPage = currentIndex
                     
                     if callFirstItemOnCreated {
-                        delegate.onPageSelected(getViewControllerAtIndex(currentIndex)!, position: currentIndex)
+                        delegate.onPageSelected(getViewControllerAtIndex(currentIndex)!, index: currentIndex)
                     }
             }
         }
@@ -133,9 +133,11 @@ public class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewCont
         }
     
         let direction: UIPageViewControllerNavigationDirection = currentIndex < index ? .Forward : .Reverse
-        self.pageViewController.setViewControllers([getViewControllerAtIndex(index)!], direction: direction, animated: animated, completion: nil)
+        let viewController = getViewControllerAtIndex(index)!
+        self.pageViewController.setViewControllers([viewController], direction: direction, animated: animated, completion: nil)
         
         currentIndex = index
+        delegate?.onPageSelected(viewController, index: index)
     }
     
     public func setScrollEnabled(enabled: Bool) {
@@ -177,7 +179,7 @@ public class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewCont
         if completed {
             if let pageVC = pageViewController.viewControllers!.last as? PageViewWrapper {
                 if let delegate = delegate {
-                    delegate.onPageSelected(pageVC.wrappedViewController, position: pageVC.pageIndex)
+                    delegate.onPageSelected(pageVC.wrappedViewController, index: pageVC.pageIndex)
                 }
                 // Save currentIndex
                 currentIndex = pageVC.pageIndex

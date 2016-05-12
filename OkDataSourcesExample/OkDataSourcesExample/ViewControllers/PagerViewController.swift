@@ -16,8 +16,8 @@ class PagerViewController: UIViewController, OkPagerViewDataSource, OkPagerViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpPager()
         setUpPages()
+        setUpPager()
     }
     
     // MARK: - Private methods
@@ -28,7 +28,6 @@ class PagerViewController: UIViewController, OkPagerViewDataSource, OkPagerViewD
             let singlePageVC = storyboard.instantiateViewControllerWithIdentifier(String(SinglePageViewController)) as! SinglePageViewController
             pageViews.append(singlePageVC)
         }
-        pagerView.reloadData()
     }
     
     private func setUpPager() {
@@ -48,8 +47,8 @@ class PagerViewController: UIViewController, OkPagerViewDataSource, OkPagerViewD
     }
     
     // MARK: - OkPagerViewDelegate
-    func onPageSelected(viewController: UIViewController, position: Int) {
-        print("Page selected: \(position)")
+    func onPageSelected(viewController: UIViewController, index: Int) {
+        print("Page selected: \(index)")
     }
     
     // MARK: - Actions
