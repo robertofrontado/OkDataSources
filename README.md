@@ -51,8 +51,8 @@ class TableViewCell: UITableViewCell, OkViewCell {
 
 In the **Storyboard** the cell needs to have an identifier like this **"\\(CLASSNAME)Idenfitier"** (For instance: **TableViewCellReuseIdenfitier**)
 
-![TableViewCell - 1](http://i.imgur.com/SAj4XMP.png)
-![TableViewCell - 2](http://i.imgur.com/HNfk3GT.png)
+![TableViewCell - 1](https://github.com/FuckBoilerplate/OkDataSources/blob/master/Screenshots/Screenshot-TableViewClass.png)
+![TableViewCell - 2](https://github.com/FuckBoilerplate/OkDataSources/blob/master/Screenshots/Screenshot-TableViewIdentifier.png)
 
 If you want to receive feedback about items selection, you need to add an `OkTableViewDelegate` to your `ViewController`, so `onItemClicked` block its going to be called every time the user clicks an item.
 
@@ -109,8 +109,8 @@ class CollectionViewCell: UICollectionViewCell, OkViewCell {
 
 In the **Storyboard** the cells needs to have an identifier like this **"\\(CLASSNAME)ReuseIdenfitier"** (For instance: **CollectionViewCellReuseIdentifier**)
 
-![CollectionViewCell - 1](http://i.imgur.com/BatGgD8.png)
-![CollectionViewCell - 2](http://i.imgur.com/pYtw3Jr.png)
+![CollectionViewCell - 1](https://github.com/FuckBoilerplate/OkDataSources/blob/master/Screenshots/Screenshot-CollectionViewClass.png)
+![CollectionViewCell - 2](https://github.com/FuckBoilerplate/OkDataSources/blob/master/Screenshots/Screenshot-CollectionViewReuseIdentifier.png)
 
 If you want to receive feedback about items selection, you need to add an `OkCollectionViewDelegate` to your `ViewController`, so `onItemClicked` block its going to be called every time the user clicks an item.
 
