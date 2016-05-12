@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A22503E31CB81D4900F3D8B5 /* OkViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22503E21CB81D4900F3D8B5 /* OkViewCellDelegate.swift */; };
+		A2568FE51CE52DB80031A250 /* OkPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2568FE41CE52DB80031A250 /* OkPagerView.swift */; };
 		A26C7A841CB81821004192D9 /* OkDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = A26C7A831CB81821004192D9 /* OkDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A26C7A8B1CB81821004192D9 /* OkDataSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A26C7A801CB81821004192D9 /* OkDataSource.framework */; };
 		A26C7A901CB81821004192D9 /* OkDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C7A8F1CB81821004192D9 /* OkDataSourceTests.swift */; };
@@ -31,7 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A22503E21CB81D4900F3D8B5 /* OkViewCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkViewCellDelegate.swift; sourceTree = "<group>"; };
+		A2568FE41CE52DB80031A250 /* OkPagerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkPagerView.swift; sourceTree = "<group>"; };
 		A26C7A801CB81821004192D9 /* OkDataSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OkDataSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A26C7A831CB81821004192D9 /* OkDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OkDataSource.h; sourceTree = "<group>"; };
 		A26C7A851CB81821004192D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -108,12 +108,12 @@
 		A26C7A9C1CB81830004192D9 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				A2568FE41CE52DB80031A250 /* OkPagerView.swift */,
 				A26C7A9E1CB81830004192D9 /* OkCollectionViewDataSource.swift */,
 				A26C7A9F1CB81830004192D9 /* OkCollectionViewDelegate.swift */,
 				A26C7AA21CB81830004192D9 /* OkTableViewDataSource.swift */,
 				A26C7AA31CB81830004192D9 /* OkTableViewDelegate.swift */,
 				A26C7AA51CB81830004192D9 /* OkViewCell.swift */,
-				A22503E21CB81D4900F3D8B5 /* OkViewCellDelegate.swift */,
 				A26C7AA61CB81830004192D9 /* OkViewDataSource.swift */,
 			);
 			name = Library;
@@ -228,11 +228,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A22503E31CB81D4900F3D8B5 /* OkViewCellDelegate.swift in Sources */,
 				A26C7AA81CB81830004192D9 /* OkCollectionViewDataSource.swift in Sources */,
 				A26C7AAF1CB81830004192D9 /* OkViewCell.swift in Sources */,
 				A26C7AB01CB81830004192D9 /* OkViewDataSource.swift in Sources */,
 				A26C7AA91CB81830004192D9 /* OkCollectionViewDelegate.swift in Sources */,
+				A2568FE51CE52DB80031A250 /* OkPagerView.swift in Sources */,
 				A26C7AAC1CB81830004192D9 /* OkTableViewDataSource.swift in Sources */,
 				A26C7AAD1CB81830004192D9 /* OkTableViewDelegate.swift in Sources */,
 			);

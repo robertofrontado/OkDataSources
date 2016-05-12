@@ -13,6 +13,9 @@
 		A21D68771CCAC40600409B22 /* OkRxCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21D68761CCAC40600409B22 /* OkRxCollectionViewDelegate.swift */; };
 		A21D68791CCAC82200409B22 /* RxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21D68781CCAC82200409B22 /* RxTableViewController.swift */; };
 		A21D687B1CCAC96000409B22 /* RxCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21D687A1CCAC96000409B22 /* RxCollectionViewController.swift */; };
+		A2568FE71CE52DC30031A250 /* OkPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2568FE61CE52DC30031A250 /* OkPagerView.swift */; };
+		A2568FE91CE530160031A250 /* PagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2568FE81CE530160031A250 /* PagerViewController.swift */; };
+		A2568FEB1CE530220031A250 /* SinglePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2568FEA1CE530220031A250 /* SinglePageViewController.swift */; };
 		A26C7A221CB81783004192D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C7A211CB81783004192D9 /* AppDelegate.swift */; };
 		A26C7A271CB81783004192D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A26C7A251CB81783004192D9 /* Main.storyboard */; };
 		A26C7A291CB81783004192D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A26C7A281CB81783004192D9 /* Assets.xcassets */; };
@@ -58,6 +61,9 @@
 		A21D68761CCAC40600409B22 /* OkRxCollectionViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkRxCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		A21D68781CCAC82200409B22 /* RxTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxTableViewController.swift; sourceTree = "<group>"; };
 		A21D687A1CCAC96000409B22 /* RxCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxCollectionViewController.swift; sourceTree = "<group>"; };
+		A2568FE61CE52DC30031A250 /* OkPagerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkPagerView.swift; sourceTree = "<group>"; };
+		A2568FE81CE530160031A250 /* PagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagerViewController.swift; sourceTree = "<group>"; };
+		A2568FEA1CE530220031A250 /* SinglePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePageViewController.swift; sourceTree = "<group>"; };
 		A26C7A1E1CB81783004192D9 /* OkDataSourcesExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OkDataSourcesExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A26C7A211CB81783004192D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A26C7A261CB81783004192D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -215,6 +221,8 @@
 				A26C7A561CB817B0004192D9 /* ViewController.swift */,
 				A21D68781CCAC82200409B22 /* RxTableViewController.swift */,
 				A21D687A1CCAC96000409B22 /* RxCollectionViewController.swift */,
+				A2568FE81CE530160031A250 /* PagerViewController.swift */,
+				A2568FEA1CE530220031A250 /* SinglePageViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -239,6 +247,7 @@
 				A26C7A6A1CB817BA004192D9 /* OkViewCell.swift */,
 				A26C7A6B1CB817BA004192D9 /* OkViewDataSource.swift */,
 				A272BAAF1CC83CAB0068F762 /* OkViewDelegate.swift */,
+				A2568FE61CE52DC30031A250 /* OkPagerView.swift */,
 			);
 			name = Library;
 			path = ../../Library;
@@ -438,6 +447,7 @@
 				A26C7A5B1CB817B0004192D9 /* Item.swift in Sources */,
 				A26C7A5D1CB817B0004192D9 /* TableViewController.swift in Sources */,
 				A26C7A5F1CB817B0004192D9 /* CollectionViewCell.swift in Sources */,
+				A2568FE71CE52DC30031A250 /* OkPagerView.swift in Sources */,
 				A26C7A751CB817BA004192D9 /* OkViewDataSource.swift in Sources */,
 				A26C7A6D1CB817BA004192D9 /* OkCollectionViewDataSource.swift in Sources */,
 				A26C7A601CB817B0004192D9 /* TableViewCell.swift in Sources */,
@@ -446,6 +456,8 @@
 				A26C7A711CB817BA004192D9 /* OkTableViewDataSource.swift in Sources */,
 				A26C7A5A1CB817B0004192D9 /* UIViewController+ShowAlertMessage.swift in Sources */,
 				A26C7A741CB817BA004192D9 /* OkViewCell.swift in Sources */,
+				A2568FEB1CE530220031A250 /* SinglePageViewController.swift in Sources */,
+				A2568FE91CE530160031A250 /* PagerViewController.swift in Sources */,
 				A26C7A5E1CB817B0004192D9 /* ViewController.swift in Sources */,
 				A21D68791CCAC82200409B22 /* RxTableViewController.swift in Sources */,
 				A21D68771CCAC40600409B22 /* OkRxCollectionViewDelegate.swift in Sources */,

@@ -1,6 +1,6 @@
 //
 //  OkRxTableViewDelegate.swift
-//  OkDataSourcesExample
+//  OkDataSources
 //
 //  Created by Roberto Frontado on 4/22/16.
 //  Copyright © 2016 Roberto Frontado. All rights reserved.

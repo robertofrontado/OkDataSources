@@ -1,6 +1,6 @@
 //
 //  OkViewDelegate.swift
-//  OkDataSourcesExample
+//  OkDataSources
 //
 //  Created by Roberto Frontado on 4/20/16.
 //  Copyright © 2016 Roberto Frontado. All rights reserved.
