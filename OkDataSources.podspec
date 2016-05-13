@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name         = "OkDataSources"
-  s.version      = "0.1.0"
-  s.summary      = "Wrappers for iOS TableView and CollectionView DataSources to simplify its api at a minimum."
+  s.version      = "0.1.1"
+  s.summary      = "Wrappers for iOS TableView and CollectionView DataSources to simplify its api at a minimum. Also it has a cool PagerView and SlidingTabs!."
 
   s.homepage     = "https://github.com/FuckBoilerplate/OkDataSources"
   s.license = { :type => "MIT", :file => "LICENSE" }
