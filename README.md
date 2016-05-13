@@ -1,5 +1,5 @@
 # OkDataSources
-Wrappers for iOS TableView and CollectionView DataSources to simply its api at a minimum.
+Wrappers for iOS TableView and CollectionView DataSources to simply its api at a minimum. Also it has a cool PagerView and SlidingTabs!
 
 ## Setup
 Add OkDataSources pod to the podfile
@@ -226,5 +226,67 @@ delegate = OkRxCollectionViewDelegate(dataSource: dataSource,
             return Observable.just(self.getMockItems(self.dataSource.items.count))
         }   
 ```
+
+## PagerView 
+
+Here is an example [PagerViewController](https://github.com/FuckBoilerplate/OkDataSources/blob/master/OkDataSourcesExample/OkDataSourcesExample/ViewControllers/PagerViewController.swift)
+
+The most convinient way is to use Storyboard. Drag a view to Storyboard and set Class to [OkPagerView](https://github.com/FuckBoilerplate/OkDataSources/blob/master/Library/OkPagerView.swift#L22)
+
+Your ViewController will need to implement the [OkPagerViewDataSource](https://github.com/FuckBoilerplate/OkDataSources/blob/master/Library/OkPagerView.swift#L11) protocol
+
+```swift
+public protocol OkPagerViewDataSource {
+    
+    func viewControllerAtIndex(index: Int) -> UIViewController?
+    func numberOfPages() -> Int?
+}
+```
+
+And if you want, there is a [OkPagerViewDelegate](https://github.com/FuckBoilerplate/OkDataSources/blob/master/Library/OkPagerView.swift#L17) protocol
+
+```swift
+public protocol OkPagerViewDelegate {
+    
+    func onPageSelected(viewController: UIViewController, index: Int)
+}
+```
+
+## SlidingTabs
+
+Here is an example [PagerViewController](https://github.com/FuckBoilerplate/OkDataSources/blob/master/OkDataSourcesExample/OkDataSourcesExample/ViewControllers/PagerViewController.swift)
+
+The most convinient way is to use Storyboard. Drag a view to Storyboard and set Class to [OkSlidingTabs](https://github.com/FuckBoilerplate/OkDataSources/blob/master/Library/OkSlidingTabs.swift#L21)
+
+You can customize this attributes through the Storyboard:
+
+- `xPadding: CGFloat`
+- `xMargin: CGFloat`
+- `labelTextColor: UIColor`
+- `labelBgColor: UIColor`
+- `indicatorColor: UIColor`
+- `indicatorHeight: CGFloat`
+- `distributeEvenly: Bool` 
+
+And If you want to use a different font you'll need to do:
+`slidingTabs.font = newFont`
+
+Your ViewController will need to implement the [OkSlidingTabsDataSource](https://github.com/FuckBoilerplate/OkDataSources/blob/master/Library/OkSlidingTabs.swift#L11) protocol
+
+```swift
+public protocol OkSlidingTabsDataSource {
+    func numberOfTabs() -> Int
+    func titleAtIndex(index: Int) -> String
+}
+```
+
+And if you want, there is a [OkSlidingTabsDelegate](https://github.com/FuckBoilerplate/OkDataSources/blob/master/Library/OkSlidingTabs.swift#L16) protocol
+
+```swift
+public protocol OkSlidingTabsDelegate {
+    func onTabSelected(index: Int)
+}
+```
+ 
 ##Credits
 This approach is based on https://github.com/Karumi/BothamUI
