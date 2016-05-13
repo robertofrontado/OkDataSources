@@ -8,9 +8,10 @@
 
 import UIKit
 
-class PagerViewController: UIViewController, OkPagerViewDataSource, OkPagerViewDelegate {
+class PagerViewController: UIViewController, OkPagerViewDataSource, OkPagerViewDelegate, OkSlidingTabsDataSource, OkSlidingTabsDelegate {
     
     @IBOutlet weak var pagerView: OkPagerView!
+    @IBOutlet weak var slidingTabs: OkSlidingTabs!
     
     var pageViews: [SinglePageViewController]!
     
@@ -18,13 +19,14 @@ class PagerViewController: UIViewController, OkPagerViewDataSource, OkPagerViewD
         super.viewDidLoad()
         setUpPages()
         setUpPager()
+        setUpSlidingTabs()
     }
     
     // MARK: - Private methods
     private func setUpPages() {
         pageViews = [SinglePageViewController]()
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        for i in 0..<3 {
+        for i in 0..<10 {
             let singlePageVC = storyboard.instantiateViewControllerWithIdentifier(String(SinglePageViewController)) as! SinglePageViewController
             singlePageVC.pageIndex = i
             pageViews.append(singlePageVC)
@@ -34,6 +36,12 @@ class PagerViewController: UIViewController, OkPagerViewDataSource, OkPagerViewD
     private func setUpPager() {
         pagerView.delegate = self
         pagerView.dataSource = self
+    }
+    
+    private func setUpSlidingTabs() {
+        slidingTabs.dataSource = self
+        slidingTabs.delegate = self
+        slidingTabs.reloadData()
     }
     
     // MARK: - OkPagerViewDataSource
@@ -48,13 +56,21 @@ class PagerViewController: UIViewController, OkPagerViewDataSource, OkPagerViewD
     // MARK: - OkPagerViewDelegate
     func onPageSelected(viewController: UIViewController, index: Int) {
         print("Page selected: \(index)")
+        slidingTabs.setCurrentTab(index)
     }
     
-    // MARK: - Actions
-    @IBAction func changePageButtonPressed(sender: UIButton) {
-        let currentIndex = pagerView.currentIndex
-        let nextPageIndex = currentIndex == pageViews.count - 1 ? 0 : currentIndex + 1
-        pagerView.setCurrentIndex(nextPageIndex, animated: true)
+    // MARK: - OkSlidingTabsDataSource
+    func titleAtIndex(index: Int) -> String {
+        return "Page \(index)"
+    }
+    
+    func numberOfTabs() -> Int {
+        return pageViews.count
+    }
+
+    // MARK: - OkSlidingTabsDelegate
+    func onTabSelected(index: Int) {
+        pagerView.setCurrentIndex(index, animated: true)
     }
     
 }

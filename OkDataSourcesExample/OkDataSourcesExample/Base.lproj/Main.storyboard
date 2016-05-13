@@ -297,8 +297,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ijT-Ga-Zqk" customClass="OkPagerView" customModule="OkDataSourcesExample" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="128" width="600" height="472"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Rl-JI-NfP" customClass="OkSlidingTabs" customModule="OkDataSourcesExample" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="600" height="64"/>
+                                <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="h8U-lE-diV"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="indicatorColor">
+                                        <color key="value" red="0.14117647059999999" green="0.57254901960000004" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="labelTextColor">
+                                        <color key="value" red="0.14117647059999999" green="0.57254901960000004" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="labelBgColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -306,18 +324,16 @@
                             <constraint firstItem="ijT-Ga-Zqk" firstAttribute="leading" secondItem="0LA-2g-Ya6" secondAttribute="leading" id="EdE-PZ-odf"/>
                             <constraint firstAttribute="trailing" secondItem="ijT-Ga-Zqk" secondAttribute="trailing" id="KGt-uP-NuR"/>
                             <constraint firstItem="eLK-q6-LGb" firstAttribute="top" secondItem="ijT-Ga-Zqk" secondAttribute="bottom" id="P7a-Cq-9QS"/>
-                            <constraint firstItem="ijT-Ga-Zqk" firstAttribute="top" secondItem="0LA-2g-Ya6" secondAttribute="top" id="aLW-rf-AbF"/>
+                            <constraint firstItem="1Rl-JI-NfP" firstAttribute="top" secondItem="E2o-9h-SkQ" secondAttribute="bottom" id="bLI-zf-Kko"/>
+                            <constraint firstAttribute="trailing" secondItem="1Rl-JI-NfP" secondAttribute="trailing" id="lhq-ff-inf"/>
+                            <constraint firstItem="ijT-Ga-Zqk" firstAttribute="top" secondItem="1Rl-JI-NfP" secondAttribute="bottom" id="swf-fc-uct"/>
+                            <constraint firstItem="1Rl-JI-NfP" firstAttribute="leading" secondItem="0LA-2g-Ya6" secondAttribute="leading" id="vYc-IS-kHp"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="PagerView Example" id="JSK-Cl-fZk">
-                        <barButtonItem key="rightBarButtonItem" title="Change page" id="Xys-lH-a8N">
-                            <connections>
-                                <action selector="changePageButtonPressed:" destination="7Ig-MA-752" id="dmZ-yA-M3d"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="PagerView Example" id="JSK-Cl-fZk"/>
                     <connections>
                         <outlet property="pagerView" destination="ijT-Ga-Zqk" id="F9R-jg-eJc"/>
+                        <outlet property="slidingTabs" destination="1Rl-JI-NfP" id="40c-dI-qFD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Fw-aQ-qSX" userLabel="First Responder" sceneMemberID="firstResponder"/>

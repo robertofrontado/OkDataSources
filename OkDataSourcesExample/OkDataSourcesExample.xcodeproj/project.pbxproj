@@ -36,6 +36,7 @@
 		A26C7A741CB817BA004192D9 /* OkViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C7A6A1CB817BA004192D9 /* OkViewCell.swift */; };
 		A26C7A751CB817BA004192D9 /* OkViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C7A6B1CB817BA004192D9 /* OkViewDataSource.swift */; };
 		A272BAB01CC83CAB0068F762 /* OkViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A272BAAF1CC83CAB0068F762 /* OkViewDelegate.swift */; };
+		A2F3D50A1CE53FA500B2225D /* OkSlidingTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F3D5091CE53FA500B2225D /* OkSlidingTabs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		A26C7A6A1CB817BA004192D9 /* OkViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkViewCell.swift; sourceTree = "<group>"; };
 		A26C7A6B1CB817BA004192D9 /* OkViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkViewDataSource.swift; sourceTree = "<group>"; };
 		A272BAAF1CC83CAB0068F762 /* OkViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkViewDelegate.swift; sourceTree = "<group>"; };
+		A2F3D5091CE53FA500B2225D /* OkSlidingTabs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkSlidingTabs.swift; sourceTree = "<group>"; };
 		A886A2ADC6E98B80E6FD6189 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A9A7D4B74C98DE144E6D2D08 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		BB976EB052CAC3E9DD24A8AB /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -248,6 +250,7 @@
 				A26C7A6B1CB817BA004192D9 /* OkViewDataSource.swift */,
 				A272BAAF1CC83CAB0068F762 /* OkViewDelegate.swift */,
 				A2568FE61CE52DC30031A250 /* OkPagerView.swift */,
+				A2F3D5091CE53FA500B2225D /* OkSlidingTabs.swift */,
 			);
 			name = Library;
 			path = ../../Library;
@@ -447,6 +450,7 @@
 				A26C7A5B1CB817B0004192D9 /* Item.swift in Sources */,
 				A26C7A5D1CB817B0004192D9 /* TableViewController.swift in Sources */,
 				A26C7A5F1CB817B0004192D9 /* CollectionViewCell.swift in Sources */,
+				A2F3D50A1CE53FA500B2225D /* OkSlidingTabs.swift in Sources */,
 				A2568FE71CE52DC30031A250 /* OkPagerView.swift in Sources */,
 				A26C7A751CB817BA004192D9 /* OkViewDataSource.swift in Sources */,
 				A26C7A6D1CB817BA004192D9 /* OkCollectionViewDataSource.swift in Sources */,

@@ -18,6 +18,7 @@
 		A26C7AAD1CB81830004192D9 /* OkTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C7AA31CB81830004192D9 /* OkTableViewDelegate.swift */; };
 		A26C7AAF1CB81830004192D9 /* OkViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C7AA51CB81830004192D9 /* OkViewCell.swift */; };
 		A26C7AB01CB81830004192D9 /* OkViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C7AA61CB81830004192D9 /* OkViewDataSource.swift */; };
+		A2F3D5081CE53F7300B2225D /* OkSlidingTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F3D5071CE53F7300B2225D /* OkSlidingTabs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		A26C7AA31CB81830004192D9 /* OkTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkTableViewDelegate.swift; sourceTree = "<group>"; };
 		A26C7AA51CB81830004192D9 /* OkViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkViewCell.swift; sourceTree = "<group>"; };
 		A26C7AA61CB81830004192D9 /* OkViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkViewDataSource.swift; sourceTree = "<group>"; };
+		A2F3D5071CE53F7300B2225D /* OkSlidingTabs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkSlidingTabs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				A2568FE41CE52DB80031A250 /* OkPagerView.swift */,
+				A2F3D5071CE53F7300B2225D /* OkSlidingTabs.swift */,
 				A26C7A9E1CB81830004192D9 /* OkCollectionViewDataSource.swift */,
 				A26C7A9F1CB81830004192D9 /* OkCollectionViewDelegate.swift */,
 				A26C7AA21CB81830004192D9 /* OkTableViewDataSource.swift */,
@@ -232,6 +235,7 @@
 				A26C7AAF1CB81830004192D9 /* OkViewCell.swift in Sources */,
 				A26C7AB01CB81830004192D9 /* OkViewDataSource.swift in Sources */,
 				A26C7AA91CB81830004192D9 /* OkCollectionViewDelegate.swift in Sources */,
+				A2F3D5081CE53F7300B2225D /* OkSlidingTabs.swift in Sources */,
 				A2568FE51CE52DB80031A250 /* OkPagerView.swift in Sources */,
 				A26C7AAC1CB81830004192D9 /* OkTableViewDataSource.swift in Sources */,
 				A26C7AAD1CB81830004192D9 /* OkTableViewDelegate.swift in Sources */,
