@@ -43,17 +43,36 @@ public class OkRxCollectionViewDelegate<T: OkViewDataSource>: OkRxViewDelegate<T
     // MARK: UICollectionViewDelegate
     public func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         // Ask for nextPage every time the user is getting close to the trigger treshold
-        if (dataSource.items.count - triggerTreshold) == indexPath.row && indexPath.row > triggerTreshold {
-            onPagination?(item: dataSource.items[indexPath.row])
-                .subscribeNext { items in
-                    self.dataSource.items.appendContentsOf(items)
-                    collectionView.reloadData()
+        if dataSource.reverseItemsOrder {
+            if reverseTriggerTreshold == indexPath.row
+                && collectionView.visibleCells().count > reverseTriggerTreshold {
+                    onPagination(item: dataSource.items[indexPath.row])
+                        .subscribeNext { items in
+                            self.dataSource.items.appendContentsOf(items)
+                            collectionView.reloadData()
+                    }
+            }
+        } else {
+            if (dataSource.items.count - triggerTreshold) == indexPath.row
+                && indexPath.row > triggerTreshold {
+                    onPagination(item: dataSource.items[indexPath.row])
+                        .subscribeNext { items in
+                            self.dataSource.items.appendContentsOf(items)
+                            collectionView.reloadData()
+                    }
             }
         }
     }
     
     public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let item = dataSource.itemAtIndexPath(indexPath)
-        onItemClicked(item: item, position: indexPath.row)
+        var item = dataSource.itemAtIndexPath(indexPath)
+        
+        if dataSource.reverseItemsOrder {
+            let inverseIndex = dataSource.items.count - indexPath.row - 1
+            item = dataSource.itemAtIndexPath(NSIndexPath(forItem: inverseIndex, inSection: 0))
+            onItemClicked(item: item, position: inverseIndex)
+        } else {
+            onItemClicked(item: item, position: indexPath.row)
+        }
     }
 }

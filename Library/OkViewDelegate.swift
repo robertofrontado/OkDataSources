@@ -16,6 +16,7 @@ public class OkViewDelegate<T: OkViewDataSource>: NSObject {
     public var onRefreshed: (refreshControl: UIRefreshControl) -> Void = { _ in return }
     public var onPagination: (item: T.ItemType) -> Void = { _ in return }
     public var triggerTreshold: Int = 1
+    public var reverseTriggerTreshold: Int = 0
     
     public init(dataSource: T, onItemClicked: (item: T.ItemType, position: Int) -> Void) {
         self.dataSource = dataSource

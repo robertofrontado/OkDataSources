@@ -42,17 +42,36 @@ public class OkRxTableViewDelegate<T: OkViewDataSource>: OkRxViewDelegate<T>, UI
     // MARK: UITableViewDelegate
     public func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         // Ask for nextPage every time the user is getting close to the trigger treshold
-        if (dataSource.items.count - triggerTreshold) == indexPath.row && indexPath.row > triggerTreshold {
-            onPagination?(item: dataSource.items[indexPath.row])
-                .subscribeNext { items in
-                    self.dataSource.items.appendContentsOf(items)
-                    tableView.reloadData()
+        if dataSource.reverseItemsOrder {
+            if reverseTriggerTreshold == indexPath.row
+                && tableView.visibleCells.count > reverseTriggerTreshold {
+                    onPagination(item: dataSource.items[indexPath.row])
+                        .subscribeNext { items in
+                            self.dataSource.items.appendContentsOf(items)
+                            tableView.reloadData()
+                    }
+            }
+        } else {
+            if (dataSource.items.count - triggerTreshold) == indexPath.row
+                && indexPath.row > triggerTreshold {
+                onPagination(item: dataSource.items[indexPath.row])
+                    .subscribeNext { items in
+                        self.dataSource.items.appendContentsOf(items)
+                        tableView.reloadData()
+                }
             }
         }
     }
     
     public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let item = dataSource.itemAtIndexPath(indexPath)
-        onItemClicked(item: item, position: indexPath.row)
+        var item = dataSource.itemAtIndexPath(indexPath)
+        
+        if dataSource.reverseItemsOrder {
+            let inverseIndex = dataSource.items.count - indexPath.row - 1
+            item = dataSource.itemAtIndexPath(NSIndexPath(forItem: inverseIndex, inSection: 0))
+            onItemClicked(item: item, position: inverseIndex)
+        } else {
+            onItemClicked(item: item, position: indexPath.row)
+        }
     }
 }

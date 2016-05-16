@@ -12,9 +12,11 @@ public protocol OkViewDataSource {
     typealias ItemType
     
     var items: [ItemType] { get set }
+    var reverseItemsOrder: Bool { get set }
 }
 
 public extension OkViewDataSource {
+    
     public func itemAtIndexPath(indexPath: NSIndexPath) -> ItemType {
         return items[indexPath.item]
     }

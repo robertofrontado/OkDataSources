@@ -19,6 +19,7 @@ class RxTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource = OkTableViewDataSource()
+        dataSource.reverseItemsOrder = true
         delegate = OkRxTableViewDelegate(dataSource: dataSource,
             onItemClicked: { (item, position) in
                 self.showAlertMessage("\(item.value) clicked")
