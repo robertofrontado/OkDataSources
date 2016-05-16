@@ -12,9 +12,9 @@ public class OkViewDelegate<T: OkViewDataSource>: NSObject {
     
     public var dataSource: T
     
-    internal let onItemClicked: (item: T.ItemType, position: Int) -> Void
-    internal var onRefreshed: (refreshControl: UIRefreshControl) -> Void = { _ in return }
-    internal var onPagination: (item: T.ItemType) -> Void = { _ in return }
+    public let onItemClicked: (item: T.ItemType, position: Int) -> Void
+    public var onRefreshed: (refreshControl: UIRefreshControl) -> Void = { _ in return }
+    public var onPagination: (item: T.ItemType) -> Void = { _ in return }
     public var triggerTreshold: Int = 1
     
     public init(dataSource: T, onItemClicked: (item: T.ItemType, position: Int) -> Void) {
