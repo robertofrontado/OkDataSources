@@ -27,6 +27,7 @@ class TableViewController: UIViewController {
         }
         delegate.setOnPagination { (item) -> Void in
             self.addMockItems(self.dataSource.items.count)
+            
         }
         tableView.dataSource = dataSource
         tableView.delegate = delegate

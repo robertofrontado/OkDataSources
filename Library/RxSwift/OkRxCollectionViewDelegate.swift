@@ -49,7 +49,11 @@ public class OkRxCollectionViewDelegate<T: OkViewDataSource>: OkRxViewDelegate<T
                     onPagination?(item: dataSource.items[indexPath.row])
                         .subscribeNext { items in
                             self.dataSource.items.appendContentsOf(items)
+                            let beforeHeight = collectionView.contentSize.height
+                            let beforeOffsetY = collectionView.contentOffset.y
                             collectionView.reloadData()
+                            collectionView.layoutIfNeeded()
+                            collectionView.contentOffset = CGPoint(x: 0, y: (collectionView.contentSize.height - beforeHeight + beforeOffsetY))
                     }
             }
         } else {
