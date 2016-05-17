@@ -32,11 +32,11 @@ public class OkCollectionViewDelegate<T: OkViewDataSource>: OkViewDelegate<T>, U
         if dataSource.reverseItemsOrder {
             if reverseTriggerTreshold == indexPath.row
                 && collectionView.visibleCells().count > reverseTriggerTreshold {
-                    onPagination(item: dataSource.items[indexPath.row])            }
+                    onPagination?(item: dataSource.items[indexPath.row])            }
         } else {
             if (dataSource.items.count - triggerTreshold) == indexPath.row
                 && indexPath.row > triggerTreshold {
-                    onPagination(item: dataSource.items[indexPath.row])
+                    onPagination?(item: dataSource.items[indexPath.row])
             }
         }
     }

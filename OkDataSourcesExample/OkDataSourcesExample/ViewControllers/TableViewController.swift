@@ -17,7 +17,6 @@ class TableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource = OkTableViewDataSource()
-        dataSource.reverseItemsOrder = true
         delegate = OkTableViewDelegate(dataSource: dataSource,
             onItemClicked: { (item, position) in
             self.showAlertMessage("\(item.value) clicked")

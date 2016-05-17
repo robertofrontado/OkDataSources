@@ -18,7 +18,6 @@ class RxCollectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource = OkCollectionViewDataSource()
-        dataSource.reverseItemsOrder = true
         delegate = OkRxCollectionViewDelegate(dataSource: dataSource,
             onItemClicked: { (item, position) in
                 self.showAlertMessage("\(item.value) clicked")

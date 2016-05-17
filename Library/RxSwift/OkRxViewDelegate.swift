@@ -14,8 +14,8 @@ public class OkRxViewDelegate<T: OkViewDataSource>: NSObject {
     public var dataSource: T
     
     public let onItemClicked: (item: T.ItemType, position: Int) -> Void
-    public var onRefreshed: (() -> Observable<[T.ItemType]>)!
-    public var onPagination: ((item: T.ItemType) -> Observable<[T.ItemType]>)!
+    public var onRefreshed: (() -> Observable<[T.ItemType]>)?
+    public var onPagination: ((item: T.ItemType) -> Observable<[T.ItemType]>)?
     public var triggerTreshold: Int = 1
     public var reverseTriggerTreshold: Int = 0
     

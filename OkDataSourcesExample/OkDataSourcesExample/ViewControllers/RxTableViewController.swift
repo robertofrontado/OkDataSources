@@ -19,7 +19,6 @@ class RxTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource = OkTableViewDataSource()
-        dataSource.reverseItemsOrder = true
         delegate = OkRxTableViewDelegate(dataSource: dataSource,
             onItemClicked: { (item, position) in
                 self.showAlertMessage("\(item.value) clicked")
@@ -27,9 +26,9 @@ class RxTableViewController: UIViewController {
         delegate.setOnPullToRefresh(tableView) {
             return Observable.just(self.getMockItems())
         }
-        delegate.setOnPagination { (item) -> Observable<[Item]> in
-            return Observable.just(self.getMockItems(self.dataSource.items.count))
-        }
+//        delegate.setOnPagination { (item) -> Observable<[Item]> in
+//            return Observable.just(self.getMockItems(self.dataSource.items.count))
+//        }
         tableView.dataSource = dataSource
         tableView.delegate = delegate
         

@@ -13,8 +13,8 @@ public class OkViewDelegate<T: OkViewDataSource>: NSObject {
     public var dataSource: T
     
     public let onItemClicked: (item: T.ItemType, position: Int) -> Void
-    public var onRefreshed: (refreshControl: UIRefreshControl) -> Void = { _ in return }
-    public var onPagination: (item: T.ItemType) -> Void = { _ in return }
+    public var onRefreshed: ((refreshControl: UIRefreshControl) -> Void)?
+    public var onPagination: ((item: T.ItemType) -> Void)?
     public var triggerTreshold: Int = 1
     public var reverseTriggerTreshold: Int = 0
     
@@ -25,7 +25,7 @@ public class OkViewDelegate<T: OkViewDataSource>: NSObject {
     
     // MARK: Private methods
     internal func refreshControlValueChanged(refreshControl: UIRefreshControl) {
-        onRefreshed(refreshControl: refreshControl)
+        onRefreshed?(refreshControl: refreshControl)
     }
     
     // MARK: - Public methods
