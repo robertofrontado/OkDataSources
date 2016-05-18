@@ -1,6 +1,7 @@
 [![Version](https://img.shields.io/cocoapods/v/OkDataSources.svg?style=flat)](http://cocoapods.org/pods/OkDataSources)
 [![License](https://img.shields.io/cocoapods/l/OkDataSources.svg?style=flat)](http://cocoapods.org/pods/OkDataSources)
 [![Platform](https://img.shields.io/cocoapods/p/OkDataSources.svg?style=flat)](http://cocoapods.org/pods/OkDataSources)
+[![Language](https://img.shields.io/badge/language-swift-orange.svg?style=flat)](https://developer.apple.com/swift)
 
 # OkDataSources
 Wrappers for iOS TableView and CollectionView DataSources to simply its api at a minimum. Also it has a cool PagerView and SlidingTabs!
