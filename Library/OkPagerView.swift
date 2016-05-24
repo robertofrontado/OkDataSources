@@ -76,8 +76,7 @@ public class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewCont
     }
     
     private func getViewControllerAtIndex(index: Int) -> PageViewWrapper? {
-        if (delegate == nil
-            || getNumberOfPages() == 0
+        if (getNumberOfPages() == 0
             || index >= getNumberOfPages())
         {
             return nil
@@ -106,19 +105,20 @@ public class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewCont
     // MARK: - Public methods
     public func reloadData() {
         
-        if let delegate = delegate {
-            if getNumberOfPages() > 0
-                && currentIndex >= 0
-                && currentIndex < getNumberOfPages() {
-                    
-                    self.pageViewController.setViewControllers([getViewControllerAtIndex(currentIndex)!], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
-                    
-                    pageControl?.currentPage = currentIndex
-                    
-                    if callFirstItemOnCreated {
-                        delegate.onPageSelected(getViewControllerAtIndex(currentIndex)!, index: currentIndex)
-                    }
-            }
+        if getNumberOfPages() > 0
+            && currentIndex >= 0
+            && currentIndex < getNumberOfPages() {
+                self.pageViewController.setViewControllers(
+                    [getViewControllerAtIndex(currentIndex)!],
+                    direction: UIPageViewControllerNavigationDirection.Forward,
+                    animated: false,
+                    completion: nil)
+                
+                pageControl?.currentPage = currentIndex
+                
+                if callFirstItemOnCreated {
+                    delegate?.onPageSelected(getViewControllerAtIndex(currentIndex)!, index: currentIndex)
+                }
         }
     }
     
@@ -131,9 +131,13 @@ public class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewCont
             print("Trying to reach an unknown page")
             return
         }
-    
+        
         let direction: UIPageViewControllerNavigationDirection = currentIndex < index ? .Forward : .Reverse
-        let viewController = getViewControllerAtIndex(index)!
+        
+        guard let viewController = getViewControllerAtIndex(index) else {
+            print("Method getViewControllerAtIndex(\(index)) is returning nil")
+            return
+        }
         self.pageViewController.setViewControllers([viewController], direction: direction, animated: animated, completion: nil)
         
         currentIndex = index
@@ -141,7 +145,7 @@ public class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewCont
     }
     
     public func setScrollEnabled(enabled: Bool) {
-
+        
         if let pageViewController = pageViewController {
             
             for view in pageViewController.view.subviews {
