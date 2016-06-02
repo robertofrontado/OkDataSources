@@ -47,6 +47,7 @@ public class OkRxTableViewDelegate<T: OkViewDataSource>: OkRxViewDelegate<T>, UI
                 && tableView.visibleCells.count > reverseTriggerTreshold {
                     onPagination?(item: dataSource.items[indexPath.row])
                         .subscribeNext { items in
+                            if items.isEmpty { return }
                             self.dataSource.items.appendContentsOf(items)
                             let beforeHeight = tableView.contentSize.height
                             let beforeOffsetY = tableView.contentOffset.y
@@ -60,6 +61,7 @@ public class OkRxTableViewDelegate<T: OkViewDataSource>: OkRxViewDelegate<T>, UI
                 && indexPath.row > triggerTreshold {
                     onPagination?(item: dataSource.items[indexPath.row])
                         .subscribeNext { items in
+                            if items.isEmpty { return }
                             self.dataSource.items.appendContentsOf(items)
                             tableView.reloadData()
                     }

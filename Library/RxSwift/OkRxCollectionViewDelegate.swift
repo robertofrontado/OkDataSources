@@ -48,6 +48,7 @@ public class OkRxCollectionViewDelegate<T: OkViewDataSource>: OkRxViewDelegate<T
                 && collectionView.visibleCells().count > reverseTriggerTreshold {
                     onPagination?(item: dataSource.items[indexPath.row])
                         .subscribeNext { items in
+                            if items.isEmpty { return }
                             self.dataSource.items.appendContentsOf(items)
                             let beforeHeight = collectionView.contentSize.height
                             let beforeOffsetY = collectionView.contentOffset.y
@@ -61,6 +62,7 @@ public class OkRxCollectionViewDelegate<T: OkViewDataSource>: OkRxViewDelegate<T
                 && indexPath.row > triggerTreshold {
                     onPagination?(item: dataSource.items[indexPath.row])
                         .subscribeNext { items in
+                            if items.isEmpty { return }
                             self.dataSource.items.appendContentsOf(items)
                             collectionView.reloadData()
                     }
