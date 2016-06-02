@@ -33,6 +33,7 @@ public class OkRxCollectionViewDelegate<T: OkViewDataSource>: OkRxViewDelegate<T
     override func refreshControlValueChanged(refreshControl: UIRefreshControl) {
         super.refreshControlValueChanged(refreshControl)
         onRefreshed?()
+            .observeOn(MainScheduler.instance)
             .subscribeNext { items in
                 self.dataSource.items.removeAll()
                 self.dataSource.items.appendContentsOf(items)
@@ -47,6 +48,7 @@ public class OkRxCollectionViewDelegate<T: OkViewDataSource>: OkRxViewDelegate<T
             if reverseTriggerTreshold == indexPath.row
                 && collectionView.visibleCells().count > reverseTriggerTreshold {
                     onPagination?(item: dataSource.items[indexPath.row])
+                        .observeOn(MainScheduler.instance)
                         .subscribeNext { items in
                             if items.isEmpty { return }
                             self.dataSource.items.appendContentsOf(items)
@@ -61,6 +63,7 @@ public class OkRxCollectionViewDelegate<T: OkViewDataSource>: OkRxViewDelegate<T
             if (dataSource.items.count - triggerTreshold) == indexPath.row
                 && indexPath.row > triggerTreshold {
                     onPagination?(item: dataSource.items[indexPath.row])
+                        .observeOn(MainScheduler.instance)
                         .subscribeNext { items in
                             if items.isEmpty { return }
                             self.dataSource.items.appendContentsOf(items)
