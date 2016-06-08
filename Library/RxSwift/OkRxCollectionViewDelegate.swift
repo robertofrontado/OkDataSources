@@ -47,28 +47,30 @@ public class OkRxCollectionViewDelegate<T: OkViewDataSource>: OkRxViewDelegate<T
         if dataSource.reverseItemsOrder {
             if reverseTriggerTreshold == indexPath.row
                 && collectionView.visibleCells().count > reverseTriggerTreshold {
-                    onPagination?(item: dataSource.items[indexPath.row])
-                        .observeOn(MainScheduler.instance)
-                        .subscribeNext { items in
-                            if items.isEmpty { return }
-                            self.dataSource.items.appendContentsOf(items)
-                            let beforeHeight = collectionView.contentSize.height
-                            let beforeOffsetY = collectionView.contentOffset.y
-                            collectionView.reloadData()
-                            collectionView.layoutIfNeeded()
-                            collectionView.contentOffset = CGPoint(x: 0, y: (collectionView.contentSize.height - beforeHeight + beforeOffsetY))
-                    }
+                let reverseIndex = dataSource.items.count - indexPath.row - 1
+                let item = dataSource.itemAtIndexPath(NSIndexPath(forItem: reverseIndex, inSection: 0))
+                onPagination?(item: item)
+                    .observeOn(MainScheduler.instance)
+                    .subscribeNext { items in
+                        if items.isEmpty { return }
+                        self.dataSource.items.appendContentsOf(items)
+                        let beforeHeight = collectionView.contentSize.height
+                        let beforeOffsetY = collectionView.contentOffset.y
+                        collectionView.reloadData()
+                        collectionView.layoutIfNeeded()
+                        collectionView.contentOffset = CGPoint(x: 0, y: (collectionView.contentSize.height - beforeHeight + beforeOffsetY))
+                }
             }
         } else {
             if (dataSource.items.count - triggerTreshold) == indexPath.row
                 && indexPath.row > triggerTreshold {
-                    onPagination?(item: dataSource.items[indexPath.row])
-                        .observeOn(MainScheduler.instance)
-                        .subscribeNext { items in
-                            if items.isEmpty { return }
-                            self.dataSource.items.appendContentsOf(items)
-                            collectionView.reloadData()
-                    }
+                onPagination?(item: dataSource.items[indexPath.row])
+                    .observeOn(MainScheduler.instance)
+                    .subscribeNext { items in
+                        if items.isEmpty { return }
+                        self.dataSource.items.appendContentsOf(items)
+                        collectionView.reloadData()
+                }
             }
         }
     }

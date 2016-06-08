@@ -31,7 +31,10 @@ public class OkTableViewDelegate<T: OkViewDataSource>: OkViewDelegate<T>, UITabl
         if dataSource.reverseItemsOrder {
             if reverseTriggerTreshold == indexPath.row
                 && tableView.visibleCells.count > reverseTriggerTreshold {
-                    onPagination?(item: dataSource.items[indexPath.row])            }
+                let inverseIndex = dataSource.items.count - indexPath.row - 1
+                let item = dataSource.itemAtIndexPath(NSIndexPath(forItem: inverseIndex, inSection: 0))
+                onPagination?(item: item)
+            }
         } else {
             if (dataSource.items.count - triggerTreshold) == indexPath.row
                 && indexPath.row > triggerTreshold {

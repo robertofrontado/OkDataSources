@@ -46,28 +46,30 @@ public class OkRxTableViewDelegate<T: OkViewDataSource>: OkRxViewDelegate<T>, UI
         if dataSource.reverseItemsOrder {
             if reverseTriggerTreshold == indexPath.row
                 && tableView.visibleCells.count > reverseTriggerTreshold {
-                    onPagination?(item: dataSource.items[indexPath.row])
-                        .observeOn(MainScheduler.instance)
-                        .subscribeNext { items in
-                            if items.isEmpty { return }
-                            self.dataSource.items.appendContentsOf(items)
-                            let beforeHeight = tableView.contentSize.height
-                            let beforeOffsetY = tableView.contentOffset.y
-                            tableView.reloadData()
-                            tableView.contentOffset = CGPoint(x: 0, y: (tableView.contentSize.height - beforeHeight + beforeOffsetY))
-                    }
-                    
+                let reverseIndex = dataSource.items.count - indexPath.row - 1
+                let item = dataSource.itemAtIndexPath(NSIndexPath(forItem: reverseIndex, inSection: 0))
+                onPagination?(item: item)
+                    .observeOn(MainScheduler.instance)
+                    .subscribeNext { items in
+                        if items.isEmpty { return }
+                        self.dataSource.items.appendContentsOf(items)
+                        let beforeHeight = tableView.contentSize.height
+                        let beforeOffsetY = tableView.contentOffset.y
+                        tableView.reloadData()
+                        tableView.contentOffset = CGPoint(x: 0, y: (tableView.contentSize.height - beforeHeight + beforeOffsetY))
+                }
+                
             }
         } else {
             if (dataSource.items.count - triggerTreshold) == indexPath.row
                 && indexPath.row > triggerTreshold {
-                    onPagination?(item: dataSource.items[indexPath.row])
-                        .observeOn(MainScheduler.instance)
-                        .subscribeNext { items in
-                            if items.isEmpty { return }
-                            self.dataSource.items.appendContentsOf(items)
-                            tableView.reloadData()
-                    }
+                onPagination?(item: dataSource.items[indexPath.row])
+                    .observeOn(MainScheduler.instance)
+                    .subscribeNext { items in
+                        if items.isEmpty { return }
+                        self.dataSource.items.appendContentsOf(items)
+                        tableView.reloadData()
+                }
             }
         }
     }
