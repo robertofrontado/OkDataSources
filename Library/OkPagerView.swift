@@ -201,8 +201,22 @@ private class PageViewWrapper: UIViewController {
     
     private override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let parentBounds = self.parentViewController?.view.bounds {
+            self.view.frame = parentBounds
+        }
+        
         wrappedViewController.view.frame = self.view.frame
+        let topConstraint = NSLayoutConstraint(item: wrappedViewController.view, attribute: .Top, relatedBy: .Equal, toItem: self.view, attribute: .Top, multiplier: 1, constant: 0)
+        
+        let bottomConstraint = NSLayoutConstraint(item: wrappedViewController.view, attribute: .Bottom, relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1, constant: 0)
+        
+        let leadingConstraint = NSLayoutConstraint(item: wrappedViewController.view, attribute: .Leading, relatedBy: .Equal, toItem: self.view, attribute: .Leading, multiplier: 1, constant: 0)
+        
+        let trailingConstraint = NSLayoutConstraint(item: wrappedViewController.view, attribute: .Trailing, relatedBy: .Equal, toItem: self.view, attribute: .Trailing, multiplier: 1, constant: 0)
+        
         self.view.addSubview(wrappedViewController.view)
+        self.view.addConstraints([topConstraint, bottomConstraint, leadingConstraint, trailingConstraint])
     }
     // MARK: Life cycle
     private override func viewDidAppear(animated: Bool) {
