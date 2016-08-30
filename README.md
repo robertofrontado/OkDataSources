@@ -20,6 +20,12 @@ pod 'OkDataSources'
 pod 'OkDataSources/RxSwift'
 ```
 
+OkDataSources also is available using [Carthage](https://github.com/Carthage/Carthage). To install it add the following dependency to your `Cartfile`:
+
+```swift
+github "robertofrontado/OkDataSources"
+```
+
 ## Usage
 
 OkDataSources provides several dataSources and delegates to deal with iOS TableViews and CollectionViews
