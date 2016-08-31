@@ -24,7 +24,7 @@ public class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewCont
     @IBOutlet weak var pageControl: UIPageControl!
     
     private var pageViewController: UIPageViewController!
-    private(set) var currentIndex = 0
+    public private(set) var currentIndex = 0
     
     public var callFirstItemOnCreated = true
     public var dataSource: OkPagerViewDataSource! {
