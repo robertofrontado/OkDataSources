@@ -161,7 +161,7 @@ public class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewCont
         if let itemViewController = viewController as? PageViewWrapper {
             var index = itemViewController.pageIndex
             if (index == 0) || (index == NSNotFound) { return nil }
-            index--
+            index -= 1
             return getViewControllerAtIndex(index)
         }
         return nil
@@ -171,7 +171,7 @@ public class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewCont
         if let itemViewController = viewController as? PageViewWrapper {
             var index = itemViewController.pageIndex
             if index == NSNotFound { return nil }
-            index++
+            index += 1
             if (index == getNumberOfPages()) { return nil }
             return getViewControllerAtIndex(index)
         }

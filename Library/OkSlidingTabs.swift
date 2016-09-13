@@ -110,7 +110,7 @@ import UIKit
                     // Button
                     let button = UIButton(frame: label.frame)
                     button.tag = i
-                    button.addTarget(self, action: "buttonPressed:", forControlEvents: .TouchUpInside)
+                    button.addTarget(self, action: #selector(OkSlidingTabs.buttonPressed(_:)), forControlEvents: .TouchUpInside)
                     scrollView.addSubview(button)
                     xOffset += label.frame.width + xMargin
                 }

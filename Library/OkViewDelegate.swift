@@ -48,7 +48,7 @@ public class OkViewDelegate<T: OkViewDataSource>: NSObject {
             refreshControl = UIRefreshControl()
             refreshControl!.tintColor = UIColor.grayColor()
         }
-        refreshControl!.addTarget(self, action: "refreshControlValueChanged:", forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl!.addTarget(self, action: #selector(OkViewDelegate.refreshControlValueChanged(_:)), forControlEvents: UIControlEvents.ValueChanged)
     }
     
 }
