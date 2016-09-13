@@ -10,45 +10,45 @@ import UIKit
 
 @objc public protocol OkSlidingTabsDataSource {
     @objc func numberOfTabs() -> Int
-    @objc func titleAtIndex(index: Int) -> String
+    @objc func titleAtIndex(_ index: Int) -> String
 }
 
 @objc public protocol OkSlidingTabsDelegate {
-    @objc func onTabSelected(index: Int)
+    @objc func onTabSelected(_ index: Int)
 }
 
 @IBDesignable
-@objc public class OkSlidingTabs: UIView {
+@objc open class OkSlidingTabs: UIView {
 
-    private var scrollView: UIScrollView!
-    private var indicatorView: UIView!
-    private var tabs: UILabel!
-    private var xOffset: CGFloat = 0
-    private var currentTabSelected = 0
-    private var labels: [UILabel]!
+    fileprivate var scrollView: UIScrollView!
+    fileprivate var indicatorView: UIView!
+    fileprivate var tabs: UILabel!
+    fileprivate var xOffset: CGFloat = 0
+    fileprivate var currentTabSelected = 0
+    fileprivate var labels: [UILabel]!
     
     @IBInspectable
-    public var xPadding: CGFloat = 20
+    open var xPadding: CGFloat = 20
     @IBInspectable
-    public var xMargin: CGFloat = 0
+    open var xMargin: CGFloat = 0
     @IBInspectable
-    public var labelTextColor: UIColor = UIColor.blackColor()
+    open var labelTextColor: UIColor = UIColor.black
     @IBInspectable
-    public var labelBgColor: UIColor = UIColor.whiteColor()
+    open var labelBgColor: UIColor = UIColor.white
     @IBInspectable
-    public var indicatorColor: UIColor = UIColor.blackColor()
+    open var indicatorColor: UIColor = UIColor.black
     @IBInspectable
-    public var indicatorHeight: CGFloat = 5
+    open var indicatorHeight: CGFloat = 5
     @IBInspectable
-    public var distributeEvenly: Bool = false {
+    open var distributeEvenly: Bool = false {
         didSet {
             reloadData()
         }
     }
-    public var font: UIFont = UIFont.systemFontOfSize(14)
+    open var font: UIFont = UIFont.systemFont(ofSize: 14)
     
-    public var dataSource: OkSlidingTabsDataSource!
-    public var delegate: OkSlidingTabsDelegate!
+    open var dataSource: OkSlidingTabsDataSource!
+    open var delegate: OkSlidingTabsDelegate!
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -61,29 +61,29 @@ import UIKit
     }
     
     // MARK: - Private methods
-    private func initView() {
+    fileprivate func initView() {
         addScrollView()
         addIndicatorView()
     }
     
-    private func addScrollView() {
+    fileprivate func addScrollView() {
         scrollView = UIScrollView(frame: self.bounds)
-        scrollView.backgroundColor = UIColor.clearColor()
-        scrollView.scrollEnabled = true
+        scrollView.backgroundColor = UIColor.clear
+        scrollView.isScrollEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
         self.addSubview(scrollView)
     }
     
-    private func addIndicatorView() {
+    fileprivate func addIndicatorView() {
         if let firstLabelFrame = labels?.first?.frame {
             indicatorView?.removeFromSuperview()
-            indicatorView = UIView(frame: CGRectMake(0, CGRectGetHeight(firstLabelFrame) - indicatorHeight, CGRectGetWidth(firstLabelFrame), indicatorHeight))
+            indicatorView = UIView(frame: CGRect(x: 0, y: firstLabelFrame.height - indicatorHeight, width: firstLabelFrame.width, height: indicatorHeight))
             indicatorView.backgroundColor = indicatorColor
             scrollView.addSubview(indicatorView)
         }
     }
     
-    private func addTabsView() {
+    fileprivate func addTabsView() {
         if let dataSource = dataSource {
             if dataSource.numberOfTabs() > 0 {
                 labels?.forEach { $0.removeFromSuperview() }
@@ -94,23 +94,23 @@ import UIKit
                     label.text = dataSource.titleAtIndex(i)
                     label.backgroundColor = labelBgColor
                     label.font = font
-                    label.textAlignment = .Center
+                    label.textAlignment = .center
                     label.textColor = labelTextColor
                     label.sizeToFit()
                     if distributeEvenly {
-                        let screenSize = UIScreen.mainScreen().bounds
+                        let screenSize = UIScreen.main.bounds
                         let width = screenSize.width / CGFloat(dataSource.numberOfTabs())
-                        label.frame = CGRectMake(xOffset, 0, width, self.frame.height)
+                        label.frame = CGRect(x: xOffset, y: 0, width: width, height: self.frame.height)
                     } else {
-                        label.frame = CGRectMake(xOffset, 0, label.frame.width + xPadding, self.frame.height)
+                        label.frame = CGRect(x: xOffset, y: 0, width: label.frame.width + xPadding, height: self.frame.height)
                     }
-                    scrollView.contentSize = CGSizeMake(xOffset + label.frame.width, self.frame.height)
+                    scrollView.contentSize = CGSize(width: xOffset + label.frame.width, height: self.frame.height)
                     scrollView.addSubview(label)
                     labels.append(label)
                     // Button
                     let button = UIButton(frame: label.frame)
                     button.tag = i
-                    button.addTarget(self, action: #selector(OkSlidingTabs.buttonPressed(_:)), forControlEvents: .TouchUpInside)
+                    button.addTarget(self, action: #selector(OkSlidingTabs.buttonPressed(_:)), for: .touchUpInside)
                     scrollView.addSubview(button)
                     xOffset += label.frame.width + xMargin
                 }
@@ -120,52 +120,52 @@ import UIKit
         scrollView.frame = self.bounds
     }
     
-    internal func buttonPressed(sender: UIButton) {
+    internal func buttonPressed(_ sender: UIButton) {
         currentTabSelected = sender.tag
         delegate?.onTabSelected(currentTabSelected)
         animateIndicator(currentTabSelected)
     }
     
     // MARK: - Indicator view animations
-    private func animateIndicator(index: Int) {
+    fileprivate func animateIndicator(_ index: Int) {
         
         if !(labels != nil && labels.count > 0 && labels.count > index) {
             return
         }
         let labelFrame = labels[index].frame
-        UIView.animateWithDuration(0.3) { () -> Void in
+        UIView.animate(withDuration: 0.3, animations: { () -> Void in
             // Indicator animation
             let indicatorFrame = self.indicatorView.frame
-            self.indicatorView.frame = CGRectMake(CGRectGetMinX(labelFrame), CGRectGetMinY(indicatorFrame), CGRectGetWidth(labelFrame), CGRectGetHeight(indicatorFrame))
+            self.indicatorView.frame = CGRect(x: labelFrame.minX, y: indicatorFrame.minY, width: labelFrame.width, height: indicatorFrame.height)
             // Scroll animation if distributeEvenly is false
             if !self.distributeEvenly {
-                if CGRectGetMinX(labelFrame) < CGRectGetWidth(self.frame)/2 { // The first places
+                if labelFrame.minX < self.frame.width/2 { // The first places
                     self.scrollView.contentOffset = CGPoint(x: 0, y: 0)
                 } else { // The rest
                     // If the remaining space is smaller than a CGRectGetWidth(self.frame)
-                    let lastWidth = self.scrollView.contentSize.width - CGRectGetMinX(labelFrame) - (CGRectGetWidth(self.frame) - CGRectGetWidth(labelFrame))/2
-                    if lastWidth < CGRectGetWidth(self.frame)/2 - CGRectGetWidth(labelFrame)/2 {
-                        let xLastOffset = self.scrollView.contentSize.width - CGRectGetWidth(self.frame)
+                    let lastWidth = self.scrollView.contentSize.width - labelFrame.minX - (self.frame.width - labelFrame.width)/2
+                    if lastWidth < self.frame.width/2 - labelFrame.width/2 {
+                        let xLastOffset = self.scrollView.contentSize.width - self.frame.width
                         self.scrollView.contentOffset = CGPoint(x: xLastOffset, y: 0)
                     } else {
                         // If not
-                        let xOffset = (CGRectGetWidth(self.frame) - CGRectGetWidth(labelFrame))/2
-                        self.scrollView.contentOffset = CGPoint(x: CGRectGetMinX(labelFrame) - xOffset, y: 0)
+                        let xOffset = (self.frame.width - labelFrame.width)/2
+                        self.scrollView.contentOffset = CGPoint(x: labelFrame.minX - xOffset, y: 0)
                     }
                 }
             }
-        }
+        }) 
     }
     
     // MARK: - Public methods
-    public func reloadData() {
+    open func reloadData() {
         xOffset = 0
         scrollView.subviews.forEach { $0.removeFromSuperview() }
         addTabsView()
         addIndicatorView()
     }
     
-    public func setCurrentTab(index: Int) {
+    open func setCurrentTab(_ index: Int) {
         currentTabSelected = index
         animateIndicator(index)
     }

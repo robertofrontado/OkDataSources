@@ -8,19 +8,19 @@
 
 import UIKit
 
-public class OkCollectionViewDelegate<T: OkViewDataSource>: OkViewDelegate<T>, UICollectionViewDelegate {
+open class OkCollectionViewDelegate<T: OkViewDataSource>: OkViewDelegate<T>, UICollectionViewDelegate {
     
-    public override init(dataSource: T, onItemClicked: (item: T.ItemType, position: Int) -> Void) {
+    public override init(dataSource: T, onItemClicked: @escaping(_ item: T.ItemType, _ position: Int) -> Void) {
         super.init(dataSource: dataSource, onItemClicked: onItemClicked)
     }
     
     // MARK: - Public methods
     // MARK: Pull to refresh
-    public func setOnPullToRefresh(collectionView: UICollectionView, onRefreshed: (refreshControl: UIRefreshControl) -> Void) {
+    open func setOnPullToRefresh(_ collectionView: UICollectionView, onRefreshed: @escaping(_ refreshControl: UIRefreshControl) -> Void) {
         setOnPullToRefresh(collectionView, onRefreshed: onRefreshed, refreshControl: nil)
     }
     
-    public func setOnPullToRefresh(collectionView: UICollectionView, onRefreshed: (refreshControl: UIRefreshControl) -> Void, refreshControl: UIRefreshControl?) {
+    open func setOnPullToRefresh(_ collectionView: UICollectionView, onRefreshed: @escaping(_ refreshControl: UIRefreshControl) -> Void, refreshControl: UIRefreshControl?) {
         var refreshControl = refreshControl
         configureRefreshControl(&refreshControl, onRefreshed: onRefreshed)
         collectionView.addSubview(refreshControl!)
@@ -28,32 +28,31 @@ public class OkCollectionViewDelegate<T: OkViewDataSource>: OkViewDelegate<T>, U
     }
     
     // MARK: UICollectionViewDelegate
-    public func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+    open func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         // Ask for nextPage every time the user is getting close to the trigger treshold
         if dataSource.reverseItemsOrder {
-            if reverseTriggerTreshold == indexPath.row
-                && collectionView.visibleCells().count > reverseTriggerTreshold {
-                let inverseIndex = dataSource.items.count - indexPath.row - 1
-                let item = dataSource.itemAtIndexPath(NSIndexPath(forItem: inverseIndex, inSection: 0))
-                onPagination?(item: item)
+            if reverseTriggerTreshold == (indexPath as NSIndexPath).row
+                && collectionView.visibleCells.count > reverseTriggerTreshold {
+                let inverseIndex = dataSource.items.count - (indexPath as NSIndexPath).row - 1
+                let item = dataSource.itemAtIndexPath(IndexPath(item: inverseIndex, section: 0))
+                onPagination?(item)
             }
         } else {
-            if (dataSource.items.count - triggerTreshold) == indexPath.row
-                && indexPath.row > triggerTreshold {
-                    onPagination?(item: dataSource.items[indexPath.row])
+            if (dataSource.items.count - triggerTreshold) == (indexPath as NSIndexPath).row
+                && (indexPath as NSIndexPath).row > triggerTreshold {
+                    onPagination?(dataSource.items[(indexPath as NSIndexPath).row])
             }
         }
     }
     
-    public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    open func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         var item = dataSource.itemAtIndexPath(indexPath)
-        
         if dataSource.reverseItemsOrder {
             let inverseIndex = dataSource.items.count - indexPath.row - 1
-            item = dataSource.itemAtIndexPath(NSIndexPath(forItem: inverseIndex, inSection: 0))
-            onItemClicked(item: item, position: inverseIndex)
+            item = dataSource.itemAtIndexPath(IndexPath(item: inverseIndex, section: 0))
+            onItemClicked(item, inverseIndex)
         } else {
-            onItemClicked(item: item, position: indexPath.row)
+            onItemClicked(item, indexPath.row)
         }
     }
 }
