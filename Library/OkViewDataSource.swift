@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol OkViewDataSource {
-    typealias ItemType
+    associatedtype ItemType
     
     var items: [ItemType] { get set }
     var reverseItemsOrder: Bool { get set }

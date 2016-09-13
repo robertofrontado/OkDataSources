@@ -10,7 +10,7 @@ public protocol OkViewCell {
     static var reuseIdentifier: String { get }
     static var identifier: String { get }
     
-    typealias ItemType
+    associatedtype ItemType
     
     func configureItem(item: ItemType)
 }
