@@ -20,7 +20,8 @@ public class OkCollectionViewDelegate<T: OkViewDataSource>: OkViewDelegate<T>, U
         setOnPullToRefresh(collectionView, onRefreshed: onRefreshed, refreshControl: nil)
     }
     
-    public func setOnPullToRefresh(collectionView: UICollectionView, onRefreshed: (refreshControl: UIRefreshControl) -> Void, var refreshControl: UIRefreshControl?) {
+    public func setOnPullToRefresh(collectionView: UICollectionView, onRefreshed: (refreshControl: UIRefreshControl) -> Void, refreshControl: UIRefreshControl?) {
+        var refreshControl = refreshControl
         configureRefreshControl(&refreshControl, onRefreshed: onRefreshed)
         collectionView.addSubview(refreshControl!)
         collectionView.alwaysBounceVertical = true
