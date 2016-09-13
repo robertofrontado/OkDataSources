@@ -86,7 +86,7 @@ import UIKit
     private func addTabsView() {
         if let dataSource = dataSource {
             if dataSource.numberOfTabs() > 0 {
-                labels?.map { $0.removeFromSuperview() }
+                labels?.forEach { $0.removeFromSuperview() }
                 labels = []
                 for i in 0..<dataSource.numberOfTabs() {
                     // Label
@@ -160,7 +160,7 @@ import UIKit
     // MARK: - Public methods
     public func reloadData() {
         xOffset = 0
-        scrollView.subviews.map { $0.removeFromSuperview() }
+        scrollView.subviews.forEach { $0.removeFromSuperview() }
         addTabsView()
         addIndicatorView()
     }
