@@ -7,13 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		32D40D1DCE88FC9FE7D00925 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB976EB052CAC3E9DD24A8AB /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		A21D68731CCABABC00409B22 /* OkRxTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21D68721CCABABC00409B22 /* OkRxTableViewDelegate.swift */; };
-		A21D68751CCAC08700409B22 /* OkRxViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21D68741CCAC08700409B22 /* OkRxViewDelegate.swift */; };
-		A21D68771CCAC40600409B22 /* OkRxCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21D68761CCAC40600409B22 /* OkRxCollectionViewDelegate.swift */; };
+		7B3875356DE76F5B6D11E7BA /* Pods_OkDataSourcesExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CD328CDD79DD37067D3D959 /* Pods_OkDataSourcesExample.framework */; };
 		A21D68791CCAC82200409B22 /* RxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21D68781CCAC82200409B22 /* RxTableViewController.swift */; };
 		A21D687B1CCAC96000409B22 /* RxCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21D687A1CCAC96000409B22 /* RxCollectionViewController.swift */; };
-		A2568FE71CE52DC30031A250 /* OkPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2568FE61CE52DC30031A250 /* OkPagerView.swift */; };
+		A22ADB4F1D907AEA001252AD /* OkCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22ADB421D907AEA001252AD /* OkCollectionViewDataSource.swift */; };
+		A22ADB501D907AEA001252AD /* OkCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22ADB431D907AEA001252AD /* OkCollectionViewDelegate.swift */; };
+		A22ADB511D907AEA001252AD /* OkPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22ADB441D907AEA001252AD /* OkPagerView.swift */; };
+		A22ADB521D907AEA001252AD /* OkSlidingTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22ADB451D907AEA001252AD /* OkSlidingTabs.swift */; };
+		A22ADB531D907AEA001252AD /* OkTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22ADB461D907AEA001252AD /* OkTableViewDataSource.swift */; };
+		A22ADB541D907AEA001252AD /* OkTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22ADB471D907AEA001252AD /* OkTableViewDelegate.swift */; };
+		A22ADB551D907AEA001252AD /* OkViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22ADB481D907AEA001252AD /* OkViewCell.swift */; };
+		A22ADB561D907AEA001252AD /* OkViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22ADB491D907AEA001252AD /* OkViewDataSource.swift */; };
+		A22ADB571D907AEA001252AD /* OkViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22ADB4A1D907AEA001252AD /* OkViewDelegate.swift */; };
+		A22ADB581D907AEA001252AD /* OkRxCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22ADB4C1D907AEA001252AD /* OkRxCollectionViewDelegate.swift */; };
+		A22ADB591D907AEA001252AD /* OkRxTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22ADB4D1D907AEA001252AD /* OkRxTableViewDelegate.swift */; };
+		A22ADB5A1D907AEA001252AD /* OkRxViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22ADB4E1D907AEA001252AD /* OkRxViewDelegate.swift */; };
 		A2568FE91CE530160031A250 /* PagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2568FE81CE530160031A250 /* PagerViewController.swift */; };
 		A2568FEB1CE530220031A250 /* SinglePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2568FEA1CE530220031A250 /* SinglePageViewController.swift */; };
 		A26C7A221CB81783004192D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C7A211CB81783004192D9 /* AppDelegate.swift */; };
@@ -29,14 +37,6 @@
 		A26C7A5E1CB817B0004192D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C7A561CB817B0004192D9 /* ViewController.swift */; };
 		A26C7A5F1CB817B0004192D9 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C7A581CB817B0004192D9 /* CollectionViewCell.swift */; };
 		A26C7A601CB817B0004192D9 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C7A591CB817B0004192D9 /* TableViewCell.swift */; };
-		A26C7A6D1CB817BA004192D9 /* OkCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C7A631CB817BA004192D9 /* OkCollectionViewDataSource.swift */; };
-		A26C7A6E1CB817BA004192D9 /* OkCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C7A641CB817BA004192D9 /* OkCollectionViewDelegate.swift */; };
-		A26C7A711CB817BA004192D9 /* OkTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C7A671CB817BA004192D9 /* OkTableViewDataSource.swift */; };
-		A26C7A721CB817BA004192D9 /* OkTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C7A681CB817BA004192D9 /* OkTableViewDelegate.swift */; };
-		A26C7A741CB817BA004192D9 /* OkViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C7A6A1CB817BA004192D9 /* OkViewCell.swift */; };
-		A26C7A751CB817BA004192D9 /* OkViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C7A6B1CB817BA004192D9 /* OkViewDataSource.swift */; };
-		A272BAB01CC83CAB0068F762 /* OkViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A272BAAF1CC83CAB0068F762 /* OkViewDelegate.swift */; };
-		A2F3D50A1CE53FA500B2225D /* OkSlidingTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F3D5091CE53FA500B2225D /* OkSlidingTabs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,12 +57,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A21D68721CCABABC00409B22 /* OkRxTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkRxTableViewDelegate.swift; sourceTree = "<group>"; };
-		A21D68741CCAC08700409B22 /* OkRxViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkRxViewDelegate.swift; sourceTree = "<group>"; };
-		A21D68761CCAC40600409B22 /* OkRxCollectionViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkRxCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		3B550EA8A18B7DFF1CE26E8B /* Pods-OkDataSourcesExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OkDataSourcesExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-OkDataSourcesExample/Pods-OkDataSourcesExample.release.xcconfig"; sourceTree = "<group>"; };
+		525F6AFE5A0FD5D853DC3265 /* Pods-OkDataSourcesExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OkDataSourcesExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OkDataSourcesExample/Pods-OkDataSourcesExample.debug.xcconfig"; sourceTree = "<group>"; };
+		7CD328CDD79DD37067D3D959 /* Pods_OkDataSourcesExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OkDataSourcesExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A21D68781CCAC82200409B22 /* RxTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxTableViewController.swift; sourceTree = "<group>"; };
 		A21D687A1CCAC96000409B22 /* RxCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxCollectionViewController.swift; sourceTree = "<group>"; };
-		A2568FE61CE52DC30031A250 /* OkPagerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkPagerView.swift; sourceTree = "<group>"; };
+		A22ADB421D907AEA001252AD /* OkCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		A22ADB431D907AEA001252AD /* OkCollectionViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		A22ADB441D907AEA001252AD /* OkPagerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkPagerView.swift; sourceTree = "<group>"; };
+		A22ADB451D907AEA001252AD /* OkSlidingTabs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkSlidingTabs.swift; sourceTree = "<group>"; };
+		A22ADB461D907AEA001252AD /* OkTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkTableViewDataSource.swift; sourceTree = "<group>"; };
+		A22ADB471D907AEA001252AD /* OkTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkTableViewDelegate.swift; sourceTree = "<group>"; };
+		A22ADB481D907AEA001252AD /* OkViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkViewCell.swift; sourceTree = "<group>"; };
+		A22ADB491D907AEA001252AD /* OkViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkViewDataSource.swift; sourceTree = "<group>"; };
+		A22ADB4A1D907AEA001252AD /* OkViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkViewDelegate.swift; sourceTree = "<group>"; };
+		A22ADB4C1D907AEA001252AD /* OkRxCollectionViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkRxCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		A22ADB4D1D907AEA001252AD /* OkRxTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkRxTableViewDelegate.swift; sourceTree = "<group>"; };
+		A22ADB4E1D907AEA001252AD /* OkRxViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkRxViewDelegate.swift; sourceTree = "<group>"; };
 		A2568FE81CE530160031A250 /* PagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagerViewController.swift; sourceTree = "<group>"; };
 		A2568FEA1CE530220031A250 /* SinglePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePageViewController.swift; sourceTree = "<group>"; };
 		A26C7A1E1CB81783004192D9 /* OkDataSourcesExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OkDataSourcesExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,17 +95,8 @@
 		A26C7A561CB817B0004192D9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A26C7A581CB817B0004192D9 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		A26C7A591CB817B0004192D9 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		A26C7A631CB817BA004192D9 /* OkCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkCollectionViewDataSource.swift; sourceTree = "<group>"; };
-		A26C7A641CB817BA004192D9 /* OkCollectionViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkCollectionViewDelegate.swift; sourceTree = "<group>"; };
-		A26C7A671CB817BA004192D9 /* OkTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkTableViewDataSource.swift; sourceTree = "<group>"; };
-		A26C7A681CB817BA004192D9 /* OkTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkTableViewDelegate.swift; sourceTree = "<group>"; };
-		A26C7A6A1CB817BA004192D9 /* OkViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkViewCell.swift; sourceTree = "<group>"; };
-		A26C7A6B1CB817BA004192D9 /* OkViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkViewDataSource.swift; sourceTree = "<group>"; };
-		A272BAAF1CC83CAB0068F762 /* OkViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkViewDelegate.swift; sourceTree = "<group>"; };
-		A2F3D5091CE53FA500B2225D /* OkSlidingTabs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkSlidingTabs.swift; sourceTree = "<group>"; };
 		A886A2ADC6E98B80E6FD6189 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A9A7D4B74C98DE144E6D2D08 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		BB976EB052CAC3E9DD24A8AB /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32D40D1DCE88FC9FE7D00925 /* Pods.framework in Frameworks */,
+				7B3875356DE76F5B6D11E7BA /* Pods_OkDataSourcesExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,16 +130,36 @@
 			children = (
 				A9A7D4B74C98DE144E6D2D08 /* Pods.debug.xcconfig */,
 				A886A2ADC6E98B80E6FD6189 /* Pods.release.xcconfig */,
+				525F6AFE5A0FD5D853DC3265 /* Pods-OkDataSourcesExample.debug.xcconfig */,
+				3B550EA8A18B7DFF1CE26E8B /* Pods-OkDataSourcesExample.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		A21D68711CCABA7900409B22 /* RxSwift */ = {
+		A22ADB411D907AEA001252AD /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				A21D68721CCABABC00409B22 /* OkRxTableViewDelegate.swift */,
-				A21D68761CCAC40600409B22 /* OkRxCollectionViewDelegate.swift */,
-				A21D68741CCAC08700409B22 /* OkRxViewDelegate.swift */,
+				A22ADB421D907AEA001252AD /* OkCollectionViewDataSource.swift */,
+				A22ADB431D907AEA001252AD /* OkCollectionViewDelegate.swift */,
+				A22ADB441D907AEA001252AD /* OkPagerView.swift */,
+				A22ADB451D907AEA001252AD /* OkSlidingTabs.swift */,
+				A22ADB461D907AEA001252AD /* OkTableViewDataSource.swift */,
+				A22ADB471D907AEA001252AD /* OkTableViewDelegate.swift */,
+				A22ADB481D907AEA001252AD /* OkViewCell.swift */,
+				A22ADB491D907AEA001252AD /* OkViewDataSource.swift */,
+				A22ADB4A1D907AEA001252AD /* OkViewDelegate.swift */,
+				A22ADB4B1D907AEA001252AD /* RxSwift */,
+			);
+			name = Library;
+			path = ../../Library;
+			sourceTree = "<group>";
+		};
+		A22ADB4B1D907AEA001252AD /* RxSwift */ = {
+			isa = PBXGroup;
+			children = (
+				A22ADB4C1D907AEA001252AD /* OkRxCollectionViewDelegate.swift */,
+				A22ADB4D1D907AEA001252AD /* OkRxTableViewDelegate.swift */,
+				A22ADB4E1D907AEA001252AD /* OkRxViewDelegate.swift */,
 			);
 			path = RxSwift;
 			sourceTree = "<group>";
@@ -167,7 +189,7 @@
 		A26C7A201CB81783004192D9 /* OkDataSourcesExample */ = {
 			isa = PBXGroup;
 			children = (
-				A26C7A611CB817BA004192D9 /* Library */,
+				A22ADB411D907AEA001252AD /* Library */,
 				A26C7A4F1CB817B0004192D9 /* Extensions */,
 				A26C7A511CB817B0004192D9 /* Models */,
 				A26C7A531CB817B0004192D9 /* ViewControllers */,
@@ -238,28 +260,10 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		A26C7A611CB817BA004192D9 /* Library */ = {
-			isa = PBXGroup;
-			children = (
-				A21D68711CCABA7900409B22 /* RxSwift */,
-				A26C7A631CB817BA004192D9 /* OkCollectionViewDataSource.swift */,
-				A26C7A641CB817BA004192D9 /* OkCollectionViewDelegate.swift */,
-				A26C7A671CB817BA004192D9 /* OkTableViewDataSource.swift */,
-				A26C7A681CB817BA004192D9 /* OkTableViewDelegate.swift */,
-				A26C7A6A1CB817BA004192D9 /* OkViewCell.swift */,
-				A26C7A6B1CB817BA004192D9 /* OkViewDataSource.swift */,
-				A272BAAF1CC83CAB0068F762 /* OkViewDelegate.swift */,
-				A2568FE61CE52DC30031A250 /* OkPagerView.swift */,
-				A2F3D5091CE53FA500B2225D /* OkSlidingTabs.swift */,
-			);
-			name = Library;
-			path = ../../Library;
-			sourceTree = "<group>";
-		};
 		E0E44EBD6461E6FCB24C81C2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BB976EB052CAC3E9DD24A8AB /* Pods.framework */,
+				7CD328CDD79DD37067D3D959 /* Pods_OkDataSourcesExample.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -271,12 +275,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A26C7A461CB81783004192D9 /* Build configuration list for PBXNativeTarget "OkDataSourcesExample" */;
 			buildPhases = (
-				48585BD769D1E699AB6BDC17 /* Check Pods Manifest.lock */,
+				48585BD769D1E699AB6BDC17 /* 📦 Check Pods Manifest.lock */,
 				A26C7A1A1CB81783004192D9 /* Sources */,
 				A26C7A1B1CB81783004192D9 /* Frameworks */,
 				A26C7A1C1CB81783004192D9 /* Resources */,
-				7CC89EADEB740B6EEE13143B /* Embed Pods Frameworks */,
-				69B683FF3D92F75992B92895 /* Copy Pods Resources */,
+				7CC89EADEB740B6EEE13143B /* 📦 Embed Pods Frameworks */,
+				69B683FF3D92F75992B92895 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -335,13 +339,16 @@
 				TargetAttributes = {
 					A26C7A1D1CB81783004192D9 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 					};
 					A26C7A311CB81783004192D9 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 						TestTargetID = A26C7A1D1CB81783004192D9;
 					};
 					A26C7A3C1CB81783004192D9 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 						TestTargetID = A26C7A1D1CB81783004192D9;
 					};
 				};
@@ -394,14 +401,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		48585BD769D1E699AB6BDC17 /* Check Pods Manifest.lock */ = {
+		48585BD769D1E699AB6BDC17 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,34 +416,34 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		69B683FF3D92F75992B92895 /* Copy Pods Resources */ = {
+		69B683FF3D92F75992B92895 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OkDataSourcesExample/Pods-OkDataSourcesExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7CC89EADEB740B6EEE13143B /* Embed Pods Frameworks */ = {
+		7CC89EADEB740B6EEE13143B /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OkDataSourcesExample/Pods-OkDataSourcesExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -446,30 +453,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A21D68731CCABABC00409B22 /* OkRxTableViewDelegate.swift in Sources */,
 				A26C7A5B1CB817B0004192D9 /* Item.swift in Sources */,
 				A26C7A5D1CB817B0004192D9 /* TableViewController.swift in Sources */,
 				A26C7A5F1CB817B0004192D9 /* CollectionViewCell.swift in Sources */,
-				A2F3D50A1CE53FA500B2225D /* OkSlidingTabs.swift in Sources */,
-				A2568FE71CE52DC30031A250 /* OkPagerView.swift in Sources */,
-				A26C7A751CB817BA004192D9 /* OkViewDataSource.swift in Sources */,
-				A26C7A6D1CB817BA004192D9 /* OkCollectionViewDataSource.swift in Sources */,
+				A22ADB5A1D907AEA001252AD /* OkRxViewDelegate.swift in Sources */,
 				A26C7A601CB817B0004192D9 /* TableViewCell.swift in Sources */,
-				A26C7A6E1CB817BA004192D9 /* OkCollectionViewDelegate.swift in Sources */,
+				A22ADB581D907AEA001252AD /* OkRxCollectionViewDelegate.swift in Sources */,
 				A21D687B1CCAC96000409B22 /* RxCollectionViewController.swift in Sources */,
-				A26C7A711CB817BA004192D9 /* OkTableViewDataSource.swift in Sources */,
+				A22ADB551D907AEA001252AD /* OkViewCell.swift in Sources */,
+				A22ADB591D907AEA001252AD /* OkRxTableViewDelegate.swift in Sources */,
 				A26C7A5A1CB817B0004192D9 /* UIViewController+ShowAlertMessage.swift in Sources */,
-				A26C7A741CB817BA004192D9 /* OkViewCell.swift in Sources */,
+				A22ADB541D907AEA001252AD /* OkTableViewDelegate.swift in Sources */,
 				A2568FEB1CE530220031A250 /* SinglePageViewController.swift in Sources */,
 				A2568FE91CE530160031A250 /* PagerViewController.swift in Sources */,
 				A26C7A5E1CB817B0004192D9 /* ViewController.swift in Sources */,
 				A21D68791CCAC82200409B22 /* RxTableViewController.swift in Sources */,
-				A21D68771CCAC40600409B22 /* OkRxCollectionViewDelegate.swift in Sources */,
-				A26C7A721CB817BA004192D9 /* OkTableViewDelegate.swift in Sources */,
+				A22ADB531D907AEA001252AD /* OkTableViewDataSource.swift in Sources */,
+				A22ADB561D907AEA001252AD /* OkViewDataSource.swift in Sources */,
 				A26C7A221CB81783004192D9 /* AppDelegate.swift in Sources */,
-				A21D68751CCAC08700409B22 /* OkRxViewDelegate.swift in Sources */,
+				A22ADB501D907AEA001252AD /* OkCollectionViewDelegate.swift in Sources */,
+				A22ADB521D907AEA001252AD /* OkSlidingTabs.swift in Sources */,
 				A26C7A5C1CB817B0004192D9 /* CollectionViewController.swift in Sources */,
-				A272BAB01CC83CAB0068F762 /* OkViewDelegate.swift in Sources */,
+				A22ADB571D907AEA001252AD /* OkViewDelegate.swift in Sources */,
+				A22ADB511D907AEA001252AD /* OkPagerView.swift in Sources */,
+				A22ADB4F1D907AEA001252AD /* OkCollectionViewDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,25 +616,27 @@
 		};
 		A26C7A471CB81783004192D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A9A7D4B74C98DE144E6D2D08 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 525F6AFE5A0FD5D853DC3265 /* Pods-OkDataSourcesExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = OkDataSourcesExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fuckboilerplate.OkDataSourcesExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		A26C7A481CB81783004192D9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A886A2ADC6E98B80E6FD6189 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 3B550EA8A18B7DFF1CE26E8B /* Pods-OkDataSourcesExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = OkDataSourcesExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fuckboilerplate.OkDataSourcesExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -639,6 +648,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fuckboilerplate.OkDataSourcesExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OkDataSourcesExample.app/OkDataSourcesExample";
 			};
 			name = Debug;
@@ -651,6 +661,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fuckboilerplate.OkDataSourcesExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OkDataSourcesExample.app/OkDataSourcesExample";
 			};
 			name = Release;
@@ -662,6 +673,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fuckboilerplate.OkDataSourcesExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = OkDataSourcesExample;
 				USES_XCTRUNNER = YES;
 			};
@@ -674,6 +686,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fuckboilerplate.OkDataSourcesExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = OkDataSourcesExample;
 				USES_XCTRUNNER = YES;
 			};
