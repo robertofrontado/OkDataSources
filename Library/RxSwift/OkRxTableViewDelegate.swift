@@ -42,7 +42,7 @@ public class OkRxTableViewDelegate<T: OkViewDataSource>: OkRxViewDelegate<T>, UI
     }
     
     // MARK: UITableViewDelegate
-    public func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         // Ask for nextPage every time the user is getting close to the trigger treshold
         if dataSource.reverseItemsOrder {
             if reverseTriggerTreshold == indexPath.row
@@ -65,16 +65,16 @@ public class OkRxTableViewDelegate<T: OkViewDataSource>: OkRxViewDelegate<T>, UI
                 && indexPath.row > triggerTreshold {
                 onPagination?(dataSource.items[indexPath.row])
                     .observeOn(MainScheduler.instance)
-                    .subscribeNext { items in
+                    .subscribe(onNext: { items in
                         if items.isEmpty { return }
                         self.dataSource.items.append(contentsOf: items)
                         tableView.reloadData()
-                }
+                })
             }
         }
     }
     
-    public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var item = dataSource.itemAtIndexPath(indexPath as IndexPath)
         
         if dataSource.reverseItemsOrder {

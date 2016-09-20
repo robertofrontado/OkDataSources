@@ -35,11 +35,11 @@ public class OkRxCollectionViewDelegate<T: OkViewDataSource>: OkRxViewDelegate<T
         super.refreshControlValueChanged(refreshControl)
         onRefreshed?()
             .observeOn(MainScheduler.instance)
-            .subscribeNext { items in
+            .subscribe(onNext: { items in
                 self.dataSource.items.removeAll()
                 self.dataSource.items.append(contentsOf: items)
                 self.collectionView.reloadData()
-        }
+        })
     }
     
     // MARK: UICollectionViewDelegate
