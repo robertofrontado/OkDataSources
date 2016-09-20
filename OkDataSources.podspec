@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "OkDataSources"
-  s.version      = "0.2.0"
+  s.version      = "1.0.0"
   s.summary      = "Wrappers for iOS TableView and CollectionView DataSources to simplify its api at a minimum. Also it has a cool PagerView and SlidingTabs!."
 
   s.homepage     = "https://github.com/FuckBoilerplate/OkDataSources"
@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
   s.subspec "RxSwift" do |ss|
     ss.source_files = "Library/RxSwift/*.swift"
     ss.dependency "OkDataSources/Core"
-    ss.dependency "RxSwift", "~> 2.0.0"
+    ss.dependency "RxSwift", ">= 3.0.0-beta.1"
   end
   
 end
