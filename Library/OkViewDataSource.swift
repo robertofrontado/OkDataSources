@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol OkViewDataSource {
-    typealias ItemType
+    associatedtype ItemType
     
     var items: [ItemType] { get set }
     var reverseItemsOrder: Bool { get set }
@@ -17,7 +17,7 @@ public protocol OkViewDataSource {
 
 public extension OkViewDataSource {
     
-    public func itemAtIndexPath(indexPath: NSIndexPath) -> ItemType {
-        return items[indexPath.item]
+    public func itemAtIndexPath(_ indexPath: IndexPath) -> ItemType {
+        return items[(indexPath as NSIndexPath).item]
     }
 }

@@ -19,6 +19,7 @@ class RxTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource = OkTableViewDataSource()
+        // If you want to invert the order just set 'reverseItemsOrder' to true
         dataSource.reverseItemsOrder = true
         delegate = OkRxTableViewDelegate(dataSource: dataSource,
             onItemClicked: { (item, position) in
@@ -32,11 +33,11 @@ class RxTableViewController: UIViewController {
         tableView.dataSource = dataSource
         tableView.delegate = delegate
         
-        dataSource.items.appendContentsOf(getMockItems())
+        dataSource.items.append(contentsOf: getMockItems())
         tableView.reloadData()
     }
     
-    private func getMockItems(count: Int = 0) -> [Item] {
+    private func getMockItems(_ count: Int = 0) -> [Item] {
         var items = [Item]()
         for i in count..<(count + 30) {
             items.append(Item(value: "Item \(i)"))

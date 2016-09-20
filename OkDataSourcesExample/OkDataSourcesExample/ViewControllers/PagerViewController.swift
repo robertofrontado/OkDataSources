@@ -27,7 +27,7 @@ class PagerViewController: UIViewController, OkPagerViewDataSource, OkPagerViewD
         pageViews = [SinglePageViewController]()
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         for i in 0..<10 {
-            let singlePageVC = storyboard.instantiateViewControllerWithIdentifier(String(SinglePageViewController)) as! SinglePageViewController
+            let singlePageVC = storyboard.instantiateViewController(withIdentifier: String(describing: SinglePageViewController.self)) as! SinglePageViewController
             singlePageVC.pageIndex = i
             pageViews.append(singlePageVC)
         }
@@ -45,7 +45,7 @@ class PagerViewController: UIViewController, OkPagerViewDataSource, OkPagerViewD
     }
     
     // MARK: - OkPagerViewDataSource
-    func viewControllerAtIndex(index: Int) -> UIViewController? {
+    func viewControllerAtIndex(_ index: Int) -> UIViewController? {
         return pageViews[index]
     }
     
@@ -54,13 +54,13 @@ class PagerViewController: UIViewController, OkPagerViewDataSource, OkPagerViewD
     }
     
     // MARK: - OkPagerViewDelegate
-    func onPageSelected(viewController: UIViewController, index: Int) {
+    func onPageSelected(_ viewController: UIViewController, index: Int) {
         print("Page selected: \(index)")
         slidingTabs.setCurrentTab(index)
     }
     
     // MARK: - OkSlidingTabsDataSource
-    func titleAtIndex(index: Int) -> String {
+    func titleAtIndex(_ index: Int) -> String {
         return "Page \(index)"
     }
     
@@ -69,7 +69,7 @@ class PagerViewController: UIViewController, OkPagerViewDataSource, OkPagerViewD
     }
 
     // MARK: - OkSlidingTabsDelegate
-    func onTabSelected(index: Int) {
+    func onTabSelected(_ index: Int) {
         pagerView.setCurrentIndex(index, animated: true)
     }
     

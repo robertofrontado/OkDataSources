@@ -16,19 +16,19 @@ averaged over N operations.
 
 Complexity of `peek` is O(1).
 */
-public struct Queue<T>: SequenceType {
+public struct Queue<T>: Sequence {
     /**
     Type of generator.
     */
-    public typealias Generator = AnyGenerator<T>
+    public typealias Generator = AnyIterator<T>
     
     private let _resizeFactor = 2
     
     private var _storage: ContiguousArray<T?>
-    private var _count: Int
-    private var _pushNextIndex: Int
+    private var _count = 0
+    private var _pushNextIndex = 0
     private var _initialCapacity: Int
-    
+
     /**
     Creates new queue.
     
@@ -36,41 +36,27 @@ public struct Queue<T>: SequenceType {
     */
     public init(capacity: Int) {
         _initialCapacity = capacity
-        
-        _count = 0
-        _pushNextIndex = 0
-     
-        if capacity > 0 {
-            _storage = ContiguousArray<T?>(count: capacity, repeatedValue: nil)
-        }
-        else {
-            _storage = ContiguousArray<T?>()
-        }
+
+        _storage = ContiguousArray<T?>(repeating: nil, count: capacity)
     }
     
     private var dequeueIndex: Int {
-        get {
-           let index = _pushNextIndex - count
-            return index < 0 ? index + _storage.count : index
-        }
+        let index = _pushNextIndex - count
+        return index < 0 ? index + _storage.count : index
     }
     
     /**
     - returns: Is queue empty.
     */
     public var isEmpty: Bool {
-        get {
-            return count == 0
-        }
+        return count == 0
     }
     
     /**
     - returns: Number of elements inside queue.
     */
     public var count: Int {
-        get {
-            return _count
-        }
+        return _count
     }
     
     /**
@@ -82,8 +68,8 @@ public struct Queue<T>: SequenceType {
         return _storage[dequeueIndex]!
     }
     
-    mutating private func resizeTo(size: Int) {
-        var newStorage = ContiguousArray<T?>(count: size, repeatedValue: nil)
+    mutating private func resizeTo(_ size: Int) {
+        var newStorage = ContiguousArray<T?>(repeating: nil, count: size)
         
         let count = _count
         
@@ -91,7 +77,7 @@ public struct Queue<T>: SequenceType {
         let spaceToEndOfQueue = _storage.count - dequeueIndex
         
         // first batch is from dequeue index to end of array
-        let countElementsInFirstBatch = min(count, spaceToEndOfQueue)
+        let countElementsInFirstBatch = Swift.min(count, spaceToEndOfQueue)
         // second batch is wrapped from start of array to end of queue
         let numberOfElementsInSecondBatch = count - countElementsInFirstBatch
         
@@ -108,14 +94,14 @@ public struct Queue<T>: SequenceType {
     
     - parameter element: Element to enqueue.
     */
-    public mutating func enqueue(element: T) {
+    public mutating func enqueue(_ element: T) {
         if count == _storage.count {
-            resizeTo(max(_storage.count, 1) * _resizeFactor)
+            resizeTo(Swift.max(_storage.count, 1) * _resizeFactor)
         }
         
         _storage[_pushNextIndex] = element
         _pushNextIndex += 1
-        _count = _count + 1
+        _count += 1
         
         if _pushNextIndex >= _storage.count {
             _pushNextIndex -= _storage.count
@@ -126,13 +112,13 @@ public struct Queue<T>: SequenceType {
         precondition(count > 0)
         
         let index = dequeueIndex
-        let value = _storage[index]!
-        
-        _storage[index] = nil
-        
-        _count = _count - 1
-        
-        return value
+
+        defer {
+            _storage[index] = nil
+            _count -= 1
+        }
+
+        return _storage[index]!
     }
 
     /**
@@ -145,36 +131,38 @@ public struct Queue<T>: SequenceType {
             return nil
         }
 
-        let value = dequeueElementOnly()
-        
-        let downsizeLimit = _storage.count / (_resizeFactor * _resizeFactor)
-        if _count < downsizeLimit && downsizeLimit >= _initialCapacity {
-            resizeTo(_storage.count / _resizeFactor)
+        defer {
+            let downsizeLimit = _storage.count / (_resizeFactor * _resizeFactor)
+            if _count < downsizeLimit && downsizeLimit >= _initialCapacity {
+                resizeTo(_storage.count / _resizeFactor)
+            }
         }
-        
-        return value
+
+        return dequeueElementOnly()
     }
     
     /**
     - returns: Generator of contained elements.
     */
-    public func generate() -> Generator {
+    public func makeIterator() -> AnyIterator<T> {
         var i = dequeueIndex
         var count = _count
 
-        return anyGenerator {
+        return AnyIterator {
             if count == 0 {
                 return nil
             }
 
-            count -= 1
+            defer {
+                count -= 1
+                i += 1
+            }
+
             if i >= self._storage.count {
                 i -= self._storage.count
             }
 
-            let element = self._storage[i]
-            i += 1
-            return element
+            return self._storage[i]
         }
     }
 }

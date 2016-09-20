@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A22ADB5F1D907B1E001252AD /* OkRxCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22ADB5C1D907B1E001252AD /* OkRxCollectionViewDelegate.swift */; };
+		A22ADB601D907B1E001252AD /* OkRxTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22ADB5D1D907B1E001252AD /* OkRxTableViewDelegate.swift */; };
+		A22ADB611D907B1E001252AD /* OkRxViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22ADB5E1D907B1E001252AD /* OkRxViewDelegate.swift */; };
 		A235567B1D75CBDE00FE726C /* OkViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A235567A1D75CBDE00FE726C /* OkViewDelegate.swift */; };
 		A2568FE51CE52DB80031A250 /* OkPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2568FE41CE52DB80031A250 /* OkPagerView.swift */; };
 		A26C7A841CB81821004192D9 /* OkDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = A26C7A831CB81821004192D9 /* OkDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -33,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A22ADB5C1D907B1E001252AD /* OkRxCollectionViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkRxCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		A22ADB5D1D907B1E001252AD /* OkRxTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkRxTableViewDelegate.swift; sourceTree = "<group>"; };
+		A22ADB5E1D907B1E001252AD /* OkRxViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkRxViewDelegate.swift; sourceTree = "<group>"; };
 		A235567A1D75CBDE00FE726C /* OkViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkViewDelegate.swift; sourceTree = "<group>"; };
 		A2568FE41CE52DB80031A250 /* OkPagerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkPagerView.swift; sourceTree = "<group>"; };
 		A26C7A801CB81821004192D9 /* OkDataSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OkDataSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +77,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A22ADB5B1D907B1E001252AD /* RxSwift */ = {
+			isa = PBXGroup;
+			children = (
+				A22ADB5C1D907B1E001252AD /* OkRxCollectionViewDelegate.swift */,
+				A22ADB5D1D907B1E001252AD /* OkRxTableViewDelegate.swift */,
+				A22ADB5E1D907B1E001252AD /* OkRxViewDelegate.swift */,
+			);
+			path = RxSwift;
+			sourceTree = "<group>";
+		};
 		A26C7A761CB81821004192D9 = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +128,7 @@
 		A26C7A9C1CB81830004192D9 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				A22ADB5B1D907B1E001252AD /* RxSwift */,
 				A235567A1D75CBDE00FE726C /* OkViewDelegate.swift */,
 				A2568FE41CE52DB80031A250 /* OkPagerView.swift */,
 				A2F3D5071CE53F7300B2225D /* OkSlidingTabs.swift */,
@@ -183,14 +200,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Roberto Frontado";
 				TargetAttributes = {
 					A26C7A7F1CB81821004192D9 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 					};
 					A26C7A891CB81821004192D9 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -236,12 +255,15 @@
 			files = (
 				A235567B1D75CBDE00FE726C /* OkViewDelegate.swift in Sources */,
 				A26C7AA81CB81830004192D9 /* OkCollectionViewDataSource.swift in Sources */,
+				A22ADB5F1D907B1E001252AD /* OkRxCollectionViewDelegate.swift in Sources */,
+				A22ADB611D907B1E001252AD /* OkRxViewDelegate.swift in Sources */,
 				A26C7AAF1CB81830004192D9 /* OkViewCell.swift in Sources */,
 				A26C7AB01CB81830004192D9 /* OkViewDataSource.swift in Sources */,
 				A26C7AA91CB81830004192D9 /* OkCollectionViewDelegate.swift in Sources */,
 				A2F3D5081CE53F7300B2225D /* OkSlidingTabs.swift in Sources */,
 				A2568FE51CE52DB80031A250 /* OkPagerView.swift in Sources */,
 				A26C7AAC1CB81830004192D9 /* OkTableViewDataSource.swift in Sources */,
+				A22ADB601D907B1E001252AD /* OkRxTableViewDelegate.swift in Sources */,
 				A26C7AAD1CB81830004192D9 /* OkTableViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,8 +300,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -326,8 +350,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -347,6 +373,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -357,6 +384,7 @@
 		A26C7A951CB81821004192D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -367,12 +395,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fuckboilerplate.OkDataSource;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		A26C7A961CB81821004192D9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -383,6 +413,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fuckboilerplate.OkDataSource;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -393,6 +424,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fuckboilerplate.OkDataSourceTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -403,6 +435,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fuckboilerplate.OkDataSourceTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

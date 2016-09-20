@@ -9,10 +9,10 @@
 import UIKit
 
 class CollectionViewCell: UICollectionViewCell, OkViewCell {
-    
+  
     @IBOutlet weak var valueLabel: UILabel!
     
-    func configureItem(item: Item) {
+    func configureItem(_ item: Item) {
         valueLabel.text = item.value
     }
 }

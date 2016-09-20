@@ -13,77 +13,78 @@ public class OkRxCollectionViewDelegate<T: OkViewDataSource>: OkRxViewDelegate<T
     
     private var collectionView: UICollectionView!
     
-    public override init(dataSource: T, onItemClicked: (item: T.ItemType, position: Int) -> Void) {
+    public override init(dataSource: T, onItemClicked: @escaping (_ item: T.ItemType, _ position: Int) -> Void) {
         super.init(dataSource: dataSource, onItemClicked: onItemClicked)
     }
     
     // MARK: - Public methods
     // MARK: Pull to refresh
-    public func setOnPullToRefresh(collectionView: UICollectionView, onRefreshed: () -> Observable<[T.ItemType]>) {
+    public func setOnPullToRefresh(_ collectionView: UICollectionView, onRefreshed: @escaping () -> Observable<[T.ItemType]>) {
         setOnPullToRefresh(collectionView, onRefreshed: onRefreshed, refreshControl: nil)
     }
     
-    public func setOnPullToRefresh(collectionView: UICollectionView, onRefreshed: () -> Observable<[T.ItemType]>, var refreshControl: UIRefreshControl?) {
+    public func setOnPullToRefresh(_ collectionView: UICollectionView, onRefreshed: @escaping () -> Observable<[T.ItemType]>, refreshControl: UIRefreshControl?) {
+        var refreshControl = refreshControl
         self.collectionView = collectionView
         configureRefreshControl(&refreshControl, onRefreshed: onRefreshed)
         collectionView.addSubview(refreshControl!)
         collectionView.alwaysBounceVertical = true
     }
     
-    override func refreshControlValueChanged(refreshControl: UIRefreshControl) {
+    override func refreshControlValueChanged(_ refreshControl: UIRefreshControl) {
         super.refreshControlValueChanged(refreshControl)
         onRefreshed?()
             .observeOn(MainScheduler.instance)
             .subscribeNext { items in
                 self.dataSource.items.removeAll()
-                self.dataSource.items.appendContentsOf(items)
+                self.dataSource.items.append(contentsOf: items)
                 self.collectionView.reloadData()
         }
     }
     
     // MARK: UICollectionViewDelegate
-    public func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         // Ask for nextPage every time the user is getting close to the trigger treshold
         if dataSource.reverseItemsOrder {
             if reverseTriggerTreshold == indexPath.row
-                && collectionView.visibleCells().count > reverseTriggerTreshold {
+                && collectionView.visibleCells.count > reverseTriggerTreshold {
                 let reverseIndex = dataSource.items.count - indexPath.row - 1
-                let item = dataSource.itemAtIndexPath(NSIndexPath(forItem: reverseIndex, inSection: 0))
-                onPagination?(item: item)
+                let item = dataSource.itemAtIndexPath(IndexPath(item: reverseIndex, section: 0))
+                onPagination?(item)
                     .observeOn(MainScheduler.instance)
-                    .subscribeNext { items in
+                    .subscribe(onNext: { items in
                         if items.isEmpty { return }
-                        self.dataSource.items.appendContentsOf(items)
+                        self.dataSource.items.append(contentsOf: items)
                         let beforeHeight = collectionView.contentSize.height
                         let beforeOffsetY = collectionView.contentOffset.y
                         collectionView.reloadData()
                         collectionView.layoutIfNeeded()
                         collectionView.contentOffset = CGPoint(x: 0, y: (collectionView.contentSize.height - beforeHeight + beforeOffsetY))
-                }
+                    })
             }
         } else {
             if (dataSource.items.count - triggerTreshold) == indexPath.row
                 && indexPath.row > triggerTreshold {
-                onPagination?(item: dataSource.items[indexPath.row])
+                onPagination?(dataSource.items[indexPath.row])
                     .observeOn(MainScheduler.instance)
-                    .subscribeNext { items in
+                    .subscribe(onNext: { items in
                         if items.isEmpty { return }
-                        self.dataSource.items.appendContentsOf(items)
+                        self.dataSource.items.append(contentsOf: items)
                         collectionView.reloadData()
-                }
+                })
             }
         }
     }
     
-    public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        var item = dataSource.itemAtIndexPath(indexPath)
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        var item = dataSource.itemAtIndexPath(indexPath as IndexPath)
         
         if dataSource.reverseItemsOrder {
             let inverseIndex = dataSource.items.count - indexPath.row - 1
-            item = dataSource.itemAtIndexPath(NSIndexPath(forItem: inverseIndex, inSection: 0))
-            onItemClicked(item: item, position: inverseIndex)
+            item = dataSource.itemAtIndexPath(IndexPath(item: inverseIndex, section: 0))
+            onItemClicked(item, inverseIndex)
         } else {
-            onItemClicked(item: item, position: indexPath.row)
+            onItemClicked(item, indexPath.row)
         }
     }
 }

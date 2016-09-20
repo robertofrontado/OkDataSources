@@ -33,12 +33,12 @@ class CollectionViewController: UIViewController {
         addMockItems()
     }
     
-    private func addMockItems(count: Int = 0) {
+    private func addMockItems(_ count: Int = 0) {
         var items = [Item]()
         for i in count..<(count + 30) {
             items.append(Item(value: "Item \(i)"))
         }
-        dataSource.items.appendContentsOf(items)
+        dataSource.items.append(contentsOf: items)
         collectionView.reloadData()
     }
     

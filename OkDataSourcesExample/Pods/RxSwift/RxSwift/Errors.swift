@@ -15,36 +15,36 @@ let RxCompositeFailures = "RxCompositeFailures"
 Generic Rx error codes.
 */
 public enum RxError
-    : ErrorType
+    : Swift.Error
     , CustomDebugStringConvertible {
     /**
     Unknown error occured.
     */
-    case Unknown
+    case unknown
     /**
     Performing an action on disposed object.
     */
-    case Disposed(object: AnyObject)
+    case disposed(object: AnyObject)
     /**
     Aritmetic overflow error.
     */
-    case Overflow
+    case overflow
     /**
     Argument out of range error.
     */
-    case ArgumentOutOfRange
+    case argumentOutOfRange
     /**
-    Sequence doesn't contain any element.
+    Sequence doesn't contain any elements.
     */
-    case NoElements
+    case noElements
     /**
-    Sequence contains more then one element.
+    Sequence contains more than one element.
     */
-    case MoreThanOneElement
+    case moreThanOneElement
     /**
      Timeout error.
      */
-    case Timeout
+    case timeout
 }
 
 public extension RxError {
@@ -53,20 +53,20 @@ public extension RxError {
     */
     public var debugDescription: String {
         switch self {
-        case .Unknown:
+        case .unknown:
             return "Unknown error occured."
-        case .Disposed(let object):
+        case .disposed(let object):
             return "Object `\(object)` was already disposed."
-        case .Overflow:
+        case .overflow:
             return "Arithmetic overflow occured."
-        case .ArgumentOutOfRange:
+        case .argumentOutOfRange:
             return "Argument out of range."
-        case .NoElements:
-            return "Sequence doesn't contain any element."
-        case .MoreThanOneElement:
-            return "Sequence contains more then one element."
-        case .Timeout:
-            return "Sequence timeout"
+        case .noElements:
+            return "Sequence doesn't contain any elements."
+        case .moreThanOneElement:
+            return "Sequence contains more than one element."
+        case .timeout:
+            return "Sequence timeout."
         }
     }
 }
