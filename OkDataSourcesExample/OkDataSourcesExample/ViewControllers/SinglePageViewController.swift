@@ -9,7 +9,7 @@
 import UIKit
 
 class SinglePageViewController: UIViewController {
-
+  
     @IBOutlet weak var pageIndexLabel: UILabel!
     
     var pageIndex: Int!

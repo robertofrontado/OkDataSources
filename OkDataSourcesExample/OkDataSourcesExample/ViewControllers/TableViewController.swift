@@ -27,19 +27,19 @@ class TableViewController: UIViewController {
         }
         delegate.setOnPagination { (item) -> Void in
             self.addMockItems(self.dataSource.items.count)
-            
+          
         }
         tableView.dataSource = dataSource
         tableView.delegate = delegate
         addMockItems()
     }
     
-    private func addMockItems(count: Int = 0) {
+    private func addMockItems(_ count: Int = 0) {
         var items = [Item]()
         for i in count..<(count + 10) {
             items.append(Item(value: "Item \(i)"))
         }
-        dataSource.items.appendContentsOf(items)
+        dataSource.items.append(contentsOf: items)
         tableView.reloadData()
     }
 

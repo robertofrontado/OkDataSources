@@ -32,11 +32,11 @@ class RxCollectionViewController: UIViewController {
         collectionView.dataSource = dataSource
         collectionView.delegate = delegate
         
-        dataSource.items.appendContentsOf(getMockItems())
+        dataSource.items.append(contentsOf: getMockItems())
         collectionView.reloadData()
     }
     
-    private func getMockItems(count: Int = 0) -> [Item] {
+    private func getMockItems(_ count: Int = 0) -> [Item] {
         var items = [Item]()
         for i in count..<(count + 30) {
             items.append(Item(value: "Item \(i)"))
