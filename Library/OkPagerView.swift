@@ -8,13 +8,13 @@
 
 import UIKit
 
-public protocol OkPagerViewDataSource {
+public protocol OkPagerViewDataSource: class {
     
     func viewControllerAtIndex(_ index: Int) -> UIViewController?
     func numberOfPages() -> Int?
 }
 
-public protocol OkPagerViewDelegate {
+public protocol OkPagerViewDelegate: class {
     
     func onPageSelected(_ viewController: UIViewController, index: Int)
 }
@@ -27,12 +27,12 @@ open class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewContro
     open fileprivate(set) var currentIndex = 0
     
     open var callFirstItemOnCreated = true
-    open var dataSource: OkPagerViewDataSource! {
+    open weak var dataSource: OkPagerViewDataSource! {
         didSet {
             reloadData()
         }
     }
-    open var delegate: OkPagerViewDelegate!
+    open weak var delegate: OkPagerViewDelegate!
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -197,7 +197,7 @@ open class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewContro
 private class PageViewWrapper: UIViewController {
     
     var pageIndex: Int = 0
-    var wrappedViewController: UIViewController!
+    weak var wrappedViewController: UIViewController!
     
     fileprivate override func viewDidLoad() {
         super.viewDidLoad()
