@@ -75,7 +75,7 @@ open class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewContro
         pageControl?.currentPage = 0
     }
     
-    fileprivate func getViewControllerAtIndex(_ index: Int) -> PageViewWrapper? {
+    fileprivate func getViewControllerAtIndex(_ index: Int) -> UIViewController? {
         if (getNumberOfPages() == 0
             || index >= getNumberOfPages())
         {
@@ -83,13 +83,11 @@ open class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewContro
         }
         
         // Create a new View Controller and pass suitable data.
-        guard let wrappedViewController = dataSource.viewControllerAtIndex(index) else {
+        guard let viewController = dataSource.viewControllerAtIndex(index) else {
             return nil
         }
-        
-        let viewController = PageViewWrapper()
-        viewController.wrappedViewController = wrappedViewController
-        viewController.pageIndex = index
+
+        viewController.view.tag = index
         return viewController
     }
     
@@ -158,84 +156,31 @@ open class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewContro
     
     // MARK: - UIPageViewControllerDataSource
     open func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        if let itemViewController = viewController as? PageViewWrapper {
-            var index = itemViewController.pageIndex
-            if (index == 0) || (index == NSNotFound) { return nil }
-            index -= 1
-            return getViewControllerAtIndex(index)
-        }
-        return nil
+        var index = viewController.view.tag
+        if (index == 0) || (index == NSNotFound) { return nil }
+        index -= 1
+        return getViewControllerAtIndex(index)
     }
     
     open func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        if let itemViewController = viewController as? PageViewWrapper {
-            var index = itemViewController.pageIndex
-            if index == NSNotFound { return nil }
-            index += 1
-            if (index == getNumberOfPages()) { return nil }
-            return getViewControllerAtIndex(index)
-        }
-        return nil
+        var index = viewController.view.tag
+        if index == NSNotFound { return nil }
+        index += 1
+        if (index == getNumberOfPages()) { return nil }
+        return getViewControllerAtIndex(index)
     }
     
     // MARK: - UIPageViewControllerDelegate
     open func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if completed {
-            if let pageVC = pageViewController.viewControllers!.last as? PageViewWrapper {
+            if let pageVC = pageViewController.viewControllers!.last as? UIViewController {
                 if let delegate = delegate {
-                    delegate.onPageSelected(pageVC.wrappedViewController, index: pageVC.pageIndex)
+                    delegate.onPageSelected(pageVC, index: pageVC.view.tag)
                 }
                 // Save currentIndex
-                currentIndex = pageVC.pageIndex
+                currentIndex = pageVC.view.tag
                 pageControl?.currentPage = currentIndex
             }
         }
-    }
-}
-
-// MARK: - PageViewWrapper
-private class PageViewWrapper: UIViewController {
-    
-    var pageIndex: Int = 0
-    weak var wrappedViewController: UIViewController!
-    
-    fileprivate override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        if let parentBounds = self.parent?.view.bounds {
-            self.view.frame = parentBounds
-        }
-        
-        wrappedViewController.view.frame = self.view.frame
-        let topConstraint = NSLayoutConstraint(item: wrappedViewController.view, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 0)
-        
-        let bottomConstraint = NSLayoutConstraint(item: wrappedViewController.view, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1, constant: 0)
-        
-        let leadingConstraint = NSLayoutConstraint(item: wrappedViewController.view, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 0)
-        
-        let trailingConstraint = NSLayoutConstraint(item: wrappedViewController.view, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: 0)
-        
-        self.view.addSubview(wrappedViewController.view)
-        self.view.addConstraints([topConstraint, bottomConstraint, leadingConstraint, trailingConstraint])
-    }
-    // MARK: Life cycle
-    fileprivate override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        wrappedViewController.viewDidAppear(animated)
-    }
-    
-    fileprivate override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        wrappedViewController.viewWillAppear(animated)
-    }
-    
-    fileprivate override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        wrappedViewController.viewWillDisappear(animated)
-    }
-    
-    fileprivate override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        wrappedViewController.viewDidDisappear(animated)
     }
 }
