@@ -153,7 +153,11 @@ open class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewContro
             }
         }
     }
-    
+
+    open func sendPageViewControllerToParent(_ parentViewController: UIViewController) {
+      parentViewController.addChildViewController(pageViewController)
+    }
+
     // MARK: - UIPageViewControllerDataSource
     open func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         var index = viewController.view.tag
