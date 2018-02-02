@@ -25,7 +25,7 @@ public class OkRxViewDelegate<T: OkViewDataSource>: NSObject {
     }
     
     // MARK: Private methods
-    internal func refreshControlValueChanged(_ refreshControl: UIRefreshControl) {
+  @objc internal func refreshControlValueChanged(_ refreshControl: UIRefreshControl) {
         refreshControl.endRefreshing()
     }
     
@@ -49,7 +49,7 @@ public class OkRxViewDelegate<T: OkViewDataSource>: NSObject {
             refreshControl = UIRefreshControl()
             refreshControl!.tintColor = UIColor.gray
         }
-        refreshControl!.addTarget(self, action: #selector(refreshControlValueChanged(_:)), for: .valueChanged)
+        refreshControl!.addTarget(self, action: #selector(refreshControlValueChanged), for: .valueChanged)
     }
     
 }

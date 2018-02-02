@@ -110,7 +110,7 @@ import UIKit
                     // Button
                     let button = UIButton(frame: label.frame)
                     button.tag = i
-                    button.addTarget(self, action: #selector(OkSlidingTabs.buttonPressed(_:)), for: .touchUpInside)
+                    button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
                     scrollView.addSubview(button)
                     xOffset += label.frame.width + xMargin
                 }
@@ -120,7 +120,7 @@ import UIKit
         scrollView.frame = self.bounds
     }
     
-    internal func buttonPressed(_ sender: UIButton) {
+  @objc internal func buttonPressed(_ sender: UIButton) {
         currentTabSelected = sender.tag
         delegate?.onTabSelected(currentTabSelected)
         animateIndicator(currentTabSelected)
