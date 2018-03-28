@@ -19,13 +19,17 @@ public protocol OkPagerViewDelegate: class {
   func onPageSelected(_ viewController: UIViewController, index: Int)
 }
 
-open class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+public protocol OkPagerViewAnimationDelegate: class {
+
+  func onScrolling(_ viewController: UIViewController, index: Int, offset: CGFloat)
+}
+
+open class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewControllerDelegate, UIScrollViewDelegate {
 
   @IBOutlet var pageControl: UIPageControl?
 
   fileprivate var pageViewController: UIPageViewController!
   open fileprivate(set) var currentIndex = 0
-
   open var callFirstItemOnCreated = true
   open weak var dataSource: OkPagerViewDataSource! {
     didSet {
@@ -63,6 +67,12 @@ open class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewContro
     addPagerView(pageViewController.view)
     pageViewController.didMove(toParentViewController: self.parentViewController)
     pageControl?.currentPage = 0
+
+    for view in pageViewController.view.subviews {
+      if let scrollView = view as? UIScrollView {
+        scrollView.delegate = self
+      }
+    }
   }
 
   fileprivate func addPagerView(_ pagerView: UIView) {
@@ -141,9 +151,11 @@ open class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewContro
       print("Method getViewControllerAtIndex(\(index)) is returning nil")
       return
     }
-    self.pageViewController.setViewControllers([viewController], direction: direction, animated: animated, completion: nil)
 
-    currentIndex = index
+    self.pageViewController.setViewControllers([viewController], direction: direction, animated: true, completion: { _ in
+      self.currentIndex = index
+    })
+
     delegate?.onPageSelected(viewController, index: index)
   }
 
@@ -178,13 +190,43 @@ open class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewContro
   // MARK: - UIPageViewControllerDelegate
   open func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
     if completed {
-      if let pageVC = pageViewController.viewControllers!.last as? UIViewController {
+      if let pageVC = pageViewController.viewControllers?.last as? UIViewController {
         if let delegate = delegate {
           delegate.onPageSelected(pageVC, index: pageVC.view.tag)
         }
         // Save currentIndex
         currentIndex = pageVC.view.tag
         pageControl?.currentPage = currentIndex
+      }
+    }
+  }
+
+  // MARK: - UIScrollViewDelegate
+  public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    let direction = scrollView.contentOffset.x > frame.size.width ? 1 : -1
+    let point = scrollView.contentOffset
+    let percentComplete: CGFloat = fabs(point.x - frame.size.width)/frame.size.width
+
+    notifyAnimationDelegates(percentComplete: percentComplete, direction: direction)
+  }
+
+  func notifyAnimationDelegates(percentComplete: CGFloat, direction: Int) {
+    guard let dataSource = dataSource,
+      let numberOfPages = dataSource.numberOfPages() else {
+        return
+    }
+
+    for i in 0..<numberOfPages {
+      if let vc = dataSource.viewControllerAtIndex(i),
+        let animationDelegate = vc as? OkPagerViewAnimationDelegate, vc.isViewLoaded {
+        let index = CGFloat(i - currentIndex)
+        let offset: CGFloat
+        if index == 0 { // Current index
+          offset = percentComplete * CGFloat(direction)
+        } else {
+          offset = index - (percentComplete * CGFloat(direction))
+        }
+        animationDelegate.onScrolling(vc, index: i, offset: offset)
       }
     }
   }
@@ -202,3 +244,5 @@ fileprivate extension UIView {
     return nil
   }
 }
+
+
