@@ -28,7 +28,7 @@ open class OkCollectionViewDataSource<U, V: OkViewCell>
         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             
             let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: V.reuseIdentifier,
+                withReuseIdentifier: V.identifier,
                 for: indexPath
             )
             var item = itemAtIndexPath(indexPath)

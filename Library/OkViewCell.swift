@@ -7,7 +7,6 @@
 //
 
 public protocol OkViewCell {
-    static var reuseIdentifier: String { get }
     static var identifier: String { get }
     
     associatedtype ItemType
@@ -16,6 +15,5 @@ public protocol OkViewCell {
 }
 
 public extension OkViewCell {
-    public static var reuseIdentifier: String { return String(describing: Self.self) + "ReuseIdentifier" }
-    public static var identifier: String { return String(describing: Self.self) + "Identifier" }
+    public static var identifier: String { return String(describing: Self.self) }
 }
