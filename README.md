@@ -60,7 +60,7 @@ class TableViewCell: UITableViewCell, OkViewCell {
 }
 ```
 
-In the **Storyboard** the cell needs to have an identifier like this **"\\(CLASSNAME)Idenfitier"** (For instance: **TableViewCellReuseIdenfitier**)
+In the **Storyboard** the cell needs to have an identifier like this **"\\(CLASSNAME)"** (For instance: **TableViewCell**)
 
 ![TableViewCell - 1](https://github.com/FuckBoilerplate/OkDataSources/blob/master/Screenshots/Screenshot-TableViewClass.png)
 ![TableViewCell - 2](https://github.com/FuckBoilerplate/OkDataSources/blob/master/Screenshots/Screenshot-TableViewIdentifier.png)
@@ -118,7 +118,7 @@ class CollectionViewCell: UICollectionViewCell, OkViewCell {
 }
 ```
 
-In the **Storyboard** the cells needs to have an identifier like this **"\\(CLASSNAME)ReuseIdenfitier"** (For instance: **CollectionViewCellReuseIdentifier**)
+In the **Storyboard** the cells needs to have an identifier like this **"\\(CLASSNAME)"** (For instance: **CollectionViewCell**)
 
 ![CollectionViewCell - 1](https://github.com/FuckBoilerplate/OkDataSources/blob/master/Screenshots/Screenshot-CollectionViewClass.png)
 ![CollectionViewCell - 2](https://github.com/FuckBoilerplate/OkDataSources/blob/master/Screenshots/Screenshot-CollectionViewReuseIdentifier.png)
