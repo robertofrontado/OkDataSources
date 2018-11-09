@@ -98,7 +98,7 @@ open class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewContro
     }
 
     // Create a new View Controller and pass suitable data.
-    guard let viewController = dataSource.viewControllerAtIndex(index) else {
+    guard let viewController = dataSource?.viewControllerAtIndex(index) else {
       return nil
     }
 
@@ -190,10 +190,8 @@ open class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewContro
   // MARK: - UIPageViewControllerDelegate
   open func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
     if completed {
-      if let pageVC = pageViewController.viewControllers?.last as? UIViewController {
-        if let delegate = delegate {
-          delegate.onPageSelected(pageVC, index: pageVC.view.tag)
-        }
+      if let pageVC = pageViewController.viewControllers?.last {
+        delegate?.onPageSelected(pageVC, index: pageVC.view.tag)
         // Save currentIndex
         currentIndex = pageVC.view.tag
         pageControl?.currentPage = currentIndex
