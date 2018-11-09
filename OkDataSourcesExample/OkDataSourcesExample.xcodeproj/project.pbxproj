@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3684E22D06E6F163643F6CF0 /* Pods_OkDataSourcesExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B41FF9E1F3A61C7383CCD6A /* Pods_OkDataSourcesExample.framework */; };
 		A21D68791CCAC82200409B22 /* RxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21D68781CCAC82200409B22 /* RxTableViewController.swift */; };
 		A21D687B1CCAC96000409B22 /* RxCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21D687A1CCAC96000409B22 /* RxCollectionViewController.swift */; };
 		A22ADB4F1D907AEA001252AD /* OkCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22ADB421D907AEA001252AD /* OkCollectionViewDataSource.swift */; };
@@ -37,6 +36,7 @@
 		A26C7A5E1CB817B0004192D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C7A561CB817B0004192D9 /* ViewController.swift */; };
 		A26C7A5F1CB817B0004192D9 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C7A581CB817B0004192D9 /* CollectionViewCell.swift */; };
 		A26C7A601CB817B0004192D9 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C7A591CB817B0004192D9 /* TableViewCell.swift */; };
+		AAED2C3725104692ABF6DA94 /* Pods_OkDataSourcesExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D387E7E193F5BD12C119050 /* Pods_OkDataSourcesExample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3B41FF9E1F3A61C7383CCD6A /* Pods_OkDataSourcesExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OkDataSourcesExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		660204F858FA3CF45C6AABFE /* Pods-OkDataSourcesExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OkDataSourcesExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-OkDataSourcesExample/Pods-OkDataSourcesExample.release.xcconfig"; sourceTree = "<group>"; };
+		7D387E7E193F5BD12C119050 /* Pods_OkDataSourcesExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OkDataSourcesExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A21D68781CCAC82200409B22 /* RxTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxTableViewController.swift; sourceTree = "<group>"; };
 		A21D687A1CCAC96000409B22 /* RxCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxCollectionViewController.swift; sourceTree = "<group>"; };
 		A22ADB421D907AEA001252AD /* OkCollectionViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkCollectionViewDataSource.swift; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3684E22D06E6F163643F6CF0 /* Pods_OkDataSourcesExample.framework in Frameworks */,
+				AAED2C3725104692ABF6DA94 /* Pods_OkDataSourcesExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,7 +126,7 @@
 		0E4EE15405FCC60B84B4B07B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3B41FF9E1F3A61C7383CCD6A /* Pods_OkDataSourcesExample.framework */,
+				7D387E7E193F5BD12C119050 /* Pods_OkDataSourcesExample.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -271,12 +271,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A26C7A461CB81783004192D9 /* Build configuration list for PBXNativeTarget "OkDataSourcesExample" */;
 			buildPhases = (
+				123412093587D7EB04AB9B2F /* [CP] Check Pods Manifest.lock */,
 				C434CE5DF208F58712B7E08A /* 📦 Check Pods Manifest.lock */,
 				A26C7A1A1CB81783004192D9 /* Sources */,
 				A26C7A1B1CB81783004192D9 /* Frameworks */,
 				A26C7A1C1CB81783004192D9 /* Resources */,
-				76FCF35FDF030BED7407ECCB /* 📦 Embed Pods Frameworks */,
-				7D9A9FB35E10E41B04D1C106 /* 📦 Copy Pods Resources */,
+				842C3FCFC14210B2D2670D94 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -397,34 +397,40 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		76FCF35FDF030BED7407ECCB /* 📦 Embed Pods Frameworks */ = {
+		123412093587D7EB04AB9B2F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OkDataSourcesExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		842C3FCFC14210B2D2670D94 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-OkDataSourcesExample/Pods-OkDataSourcesExample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OkDataSourcesExample/Pods-OkDataSourcesExample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7D9A9FB35E10E41B04D1C106 /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OkDataSourcesExample/Pods-OkDataSourcesExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C434CE5DF208F58712B7E08A /* 📦 Check Pods Manifest.lock */ = {
