@@ -31,12 +31,12 @@ open class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewContro
   fileprivate var pageViewController: UIPageViewController!
   open fileprivate(set) var currentIndex = 0
   open var callFirstItemOnCreated = true
-  open weak var dataSource: OkPagerViewDataSource! {
+  open weak var dataSource: OkPagerViewDataSource? {
     didSet {
       reloadData()
     }
   }
-  open weak var delegate: OkPagerViewDelegate!
+  open weak var delegate: OkPagerViewDelegate?
 
   required public init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
@@ -47,7 +47,7 @@ open class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewContro
     super.init(frame: frame)
     addPagerViewController()
   }
-
+  
   override open func layoutSubviews() {
     super.layoutSubviews()
     addPagerViewController()

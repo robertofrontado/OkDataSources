@@ -47,8 +47,8 @@ import UIKit
     }
     open var font: UIFont = UIFont.systemFont(ofSize: 14)
     
-    open var dataSource: OkSlidingTabsDataSource!
-    open var delegate: OkSlidingTabsDelegate!
+    open weak var dataSource: OkSlidingTabsDataSource?
+    open weak var delegate: OkSlidingTabsDelegate?
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
